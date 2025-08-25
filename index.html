@@ -25,22 +25,22 @@
 <body data-theme="dark">
     <!-- Loading Screen -->
     <div class="loader">
-        <div class="loader-text">Loading...</div>
+        <div class="loader-text">Carregando...</div>
     </div>
 
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
 
-    <!-- Header -->
+<!-- Header -->
     <header class="header" id="header">
         <nav class="nav">
             <div class="logo">RO</div>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projetos</a></li>
-                <li><a href="#contact" class="nav-link">Contato</a></li>
+                <li><a class="nav-link active" data-section="home"><a href="#home" class="btn btn-secondary">Home </a></li>
+                <li><a class="nav-link" data-section="about"><a href="#about" class="btn btn-secondary">Sobre </a></li>
+                <li><a class="nav-link" data-section="skills"><a href="#skills" class="btn btn-secondary">Habilidades </a></li>
+                <li><a class="nav-link" data-section="projects"><a href="#projects" class="btn btn-secondary">Projetos </a></li>
+                <li><a class="nav-link" data-section="contact"><a href="#contact" class="btn btn-secondary">Contato </a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
                 <i class="fas fa-moon" id="themeIcon"></i>
@@ -57,11 +57,11 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="mobile-nav-links">
-                <li><a href="#home" class="mobile-nav-link">Home</a></li>
-                <li><a href="#about" class="mobile-nav-link">Sobre</a></li>
-                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
-                <li><a href="#projects" class="mobile-nav-link">Projetos</a></li>
-                <li><a href="#contact" class="mobile-nav-link">Contato</a></li>
+                <li><a class="mobile-nav-link" data-section="home">Home</a></li>
+                <li><a class="mobile-nav-link" data-section="about">Sobre</a></li>
+                <li><a class="mobile-nav-link" data-section="skills">Skills</a></li>
+                <li><a class="mobile-nav-link" data-section="projects">Projetos</a></li>
+                <li><a class="mobile-nav-link" data-section="contact">Contato</a></li>
             </ul>
         </div>
     </header>
@@ -72,14 +72,14 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span>🚀</span>
-                <span>Disponível para novos projetos</span>
+                <a href="#contact" class="btn btn-secondary">Disponível para novos projetos </a>
             </div>
             <h1 class="hero-title">RENAN DE OLIVEIRA</h1>
             <div class="hero-subtitle">
                 <span id="typed-text"></span>
                 <span class="typing-cursor"></span>
             </div>
-            <div class="hero-buttons">
+           <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Ver Projetos</a>
                 <a href="#contact" class="btn btn-secondary">Contato</a>
             </div>
@@ -94,7 +94,6 @@
         <div class="container">
             <h2 class="section-title fade-in">Sobre Mim</h2>
             <div class="about-grid">
-                <!-- FOTO -->
                 <div class="about-image fade-in">
                     <div class="profile-container">
                         <img src="profile-img.jpg" alt="Renan de Oliveira" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -105,7 +104,6 @@
                     </div>
                 </div>
 
-                <!-- TEXTO -->
                 <div class="about-content fade-in">
                     <h3>Desenvolvedor & Especialista em Tecnologias Maker</h3>
                     <p>Graduado em Tecnologia em Jogos Digitais pela Fatec Americana, com experiência sólida em desenvolvimento de protótipos, programação e tecnologias maker.</p>
@@ -410,7 +408,6 @@
             <p>&copy; 2025 Renan de Oliveira. Desenvolvido com tecnologias avançadas e muito ❤️</p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
