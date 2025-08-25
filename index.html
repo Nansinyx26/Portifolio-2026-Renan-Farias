@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renan de Oliveira - Advanced Developer Portfolio</title>
     <meta name="description" content="Portfolio avançado com React, Three.js, GSAP e tecnologias cutting-edge">
-    
+
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body data-theme="dark">
     <!-- Loading Screen -->
     <div class="loader">
@@ -31,21 +33,22 @@
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
 
-<!-- Header -->
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav">
             <div class="logo">RO</div>
             <ul class="nav-links">
-                <li><a class="nav-link active" data-section="home"><a href="#home" class="btn btn-secondary">Home </a></li>
-                <li><a class="nav-link" data-section="about"><a href="#about" class="btn btn-secondary">Sobre </a></li>
-                <li><a class="nav-link" data-section="skills"><a href="#skills" class="btn btn-secondary">Habilidades </a></li>
-                <li><a class="nav-link" data-section="projects"><a href="#projects" class="btn btn-secondary">Projetos </a></li>
-                <li><a class="nav-link" data-section="contact"><a href="#contact" class="btn btn-secondary">Contato </a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#experience" class="nav-link">Experiências</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
-            
+
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu móvel">
                 <span></span>
@@ -53,15 +56,16 @@
                 <span></span>
             </button>
         </nav>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="mobile-nav-links">
-                <li><a class="mobile-nav-link" data-section="home">Home</a></li>
-                <li><a class="mobile-nav-link" data-section="about">Sobre</a></li>
-                <li><a class="mobile-nav-link" data-section="skills">Skills</a></li>
-                <li><a class="mobile-nav-link" data-section="projects">Projetos</a></li>
-                <li><a class="mobile-nav-link" data-section="contact">Contato</a></li>
+                <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link">Sobre</a></li>
+                <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
+                <li><a href="#experience" class="mobile-nav-link">Experiências</a></li>
+                <li><a href="#projects" class="mobile-nav-link">Projetos</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contato</a></li>
             </ul>
         </div>
     </header>
@@ -72,14 +76,14 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span>🚀</span>
-                <a href="#contact" class="btn btn-secondary">Disponível para novos projetos </a>
+                <span class="badge-text">Disponível para novos projetos</span>
             </div>
             <h1 class="hero-title">RENAN DE OLIVEIRA</h1>
             <div class="hero-subtitle">
                 <span id="typed-text"></span>
                 <span class="typing-cursor"></span>
             </div>
-           <div class="hero-buttons">
+            <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Ver Projetos</a>
                 <a href="#contact" class="btn btn-secondary">Contato</a>
             </div>
@@ -109,7 +113,7 @@
                     <p>Graduado em Tecnologia em Jogos Digitais pela Fatec Americana, com experiência sólida em desenvolvimento de protótipos, programação e tecnologias maker.</p>
                     <p>Especialista em integração de Inteligência Artificial em processos educacionais e desenvolvimento. Atualmente trabalho na Maker Mania LTDA como Técnico de Laboratório Jr.</p>
                     <p>Utilizo IAs como ChatGPT e Claude para otimizar processos e criar experiências educacionais mais eficazes, combinando tecnologia de ponta com metodologias inovadoras.</p>
-                 <div class="info-grid">
+                    <div class="info-grid">
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Americana, SP</span>
@@ -126,6 +130,7 @@
                             <i class="fas fa-language"></i>
                             <span>Inglês: Intermediário</span>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,7 +155,7 @@
                         <span class="skill-tag">Prompt Engineering</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🤖</div>
                     <h3>Inteligência Artificial</h3>
@@ -162,7 +167,7 @@
                         <span class="skill-tag">IA Educacional</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🔧</div>
                     <h3>Tecnologias Maker</h3>
@@ -174,7 +179,7 @@
                         <span class="skill-tag">Microcontroladores</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🎨</div>
                     <h3>Design & 3D</h3>
@@ -186,7 +191,7 @@
                         <span class="skill-tag">CSS Avançado</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🎮</div>
                     <h3>Desenvolvimento de Jogos</h3>
@@ -197,7 +202,7 @@
                         <span class="skill-tag">Prototipagem</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🏫</div>
                     <h3>Educação Tech</h3>
@@ -212,10 +217,10 @@
         </div>
     </section>
 
-     <!-- Experience Section -->
-    <section id="experience" class="experience fade-in">
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
         <div class="container">
-            <h2 class="section-title">Experiência Profissional</h2>
+            <h2 class="section-title fade-in">Experiência Profissional</h2>
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
@@ -268,13 +273,11 @@
         </div>
     </section>
 
-
     <!-- Projects Section -->
     <section id="projects" class="section projects">
         <div class="container">
             <h2 class="section-title fade-in">Projetos em Destaque</h2>
             <div class="projects-grid">
-
                 <div class="project-card fade-in">
                     <div class="project-image">
                         <img src="MakerCoins3.0.png" alt="MakerCoins3.0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -313,8 +316,8 @@
                         <h3>Sistema Solar VR 3.0</h3>
                         <p>Experiência imersiva do sistema solar em realidade virtual. Desenvolvido com Unity e tecnologias avançadas de VR para educação.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">VR</span>
                             <span class="tech-tag">WebGL</span>
                         </div>
@@ -415,7 +418,7 @@
                         <h3>Cadastro de Senha Criptografada</h3>
                         <p>Sistema simples para cadastro e armazenamento de senhas com criptografia.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">Cryptography</span>
                             <span class="tech-tag">Security</span>
                             <span class="tech-tag">Modern CSS</span>
@@ -427,7 +430,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -438,7 +440,7 @@
             <h2 class="section-title fade-in">Vamos Criar Algo Incrível?</h2>
             <div class="contact-content fade-in">
                 <p>Estou sempre aberto a novos desafios e oportunidades. Entre em contato para discutirmos como posso contribuir com tecnologias avançadas!</p>
-                
+
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -451,7 +453,7 @@
                         <p>Americana, SP</p>
                     </div>
                 </div>
-                
+
                 <div class="hero-buttons">
                     <a href="mailto:oliversinyxcontato@gmail.com" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Enviar Email
@@ -486,4 +488,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
