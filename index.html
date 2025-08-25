@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renan de Oliveira - Advanced Developer Portfolio</title>
+    <meta name="description" content="Portfolio avançado com React, Three.js, GSAP e tecnologias cutting-edge">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-theme="dark">
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader-text">Loading...</div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo">RO</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu móvel">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link">Sobre</a></li>
+                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li><a href="#projects" class="mobile-nav-link">Projetos</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🚀</span>
+                <span>Disponível para novos projetos</span>
+            </div>
+            <h1 class="hero-title">RENAN DE OLIVEIRA</h1>
+            <div class="hero-subtitle">
+                <span id="typed-text"></span>
+                <span class="typing-cursor"></span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                <a href="#contact" class="btn btn-secondary">Contato</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <div class="about-grid">
+                <!-- FOTO -->
+                <div class="about-image fade-in">
+                    <div class="profile-container">
+                        <img src="profile-img.jpg" alt="Renan de Oliveira" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="profile-placeholder" style="display: none;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-ring"></div>
+                    </div>
+                </div>
+
+                <!-- TEXTO -->
+                <div class="about-content fade-in">
+                    <h3>Desenvolvedor & Especialista em Tecnologias Maker</h3>
+                    <p>Graduado em Tecnologia em Jogos Digitais pela Fatec Americana, com experiência sólida em desenvolvimento de protótipos, programação e tecnologias maker.</p>
+                    <p>Especialista em integração de Inteligência Artificial em processos educacionais e desenvolvimento. Atualmente trabalho na Maker Mania LTDA como Técnico de Laboratório Jr.</p>
+                    <p>Utilizo IAs como ChatGPT e Claude para otimizar processos e criar experiências educacionais mais eficazes, combinando tecnologia de ponta com metodologias inovadoras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programação</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Three.js</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Arduino</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🤖</div>
+                    <h3>Inteligência Artificial</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Claude AI</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Automação</span>
+                        <span class="skill-tag">IA Educacional</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Tecnologias Maker</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Impressão 3D</span>
+                        <span class="skill-tag">Cortadora Laser</span>
+                        <span class="skill-tag">Prototipagem</span>
+                        <span class="skill-tag">Eletrônica</span>
+                        <span class="skill-tag">Microcontroladores</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Design & 3D</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Blender</span>
+                        <span class="skill-tag">Tinkercad</span>
+                        <span class="skill-tag">WebGL</span>
+                        <span class="skill-tag">GSAP</span>
+                        <span class="skill-tag">CSS Avançado</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎮</div>
+                    <h3>Desenvolvimento de Jogos</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">Game Design</span>
+                        <span class="skill-tag">VR/AR</span>
+                        <span class="skill-tag">Prototipagem</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🏫</div>
+                    <h3>Educação Tech</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Workshops</span>
+                        <span class="skill-tag">Mentoria</span>
+                        <span class="skill-tag">Material Didático</span>
+                        <span class="skill-tag">IA na Educação</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Projetos em Destaque</h2>
+            <div class="projects-grid">
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="MakerCoins3.0.png" alt="MakerCoins3.0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Maker Coins 3.0</h3>
+                        <p>Sistema de moedas virtuais para gamificação de atividades em laboratórios maker. Interface moderna com recursos avançados de JavaScript.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Gamification</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nansinyx26/Maker_Coins3.00" class="project-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://nansinyx26.github.io/Maker_Coins3.00" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="SistemaSolar.png" alt="Sistema Solar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema Solar VR 3.0</h3>
+                        <p>Experiência imersiva do sistema solar em realidade virtual. Desenvolvido com Unity e tecnologias avançadas de VR para educação.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">VR</span>
+                            <span class="tech-tag">WebGL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nansinyx26/Sistema-Solar-VR" class="project-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://nansinyx26.github.io/Sistema-Solar-3.0-VR/" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="SistemaFuteboldeBotão.png" alt="Sistema Futebol de Botão" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema Futebol de Botão</h3>
+                        <p>Plataforma completa para gerenciamento de campeonatos. Interface moderna com controle de jogadores, times e estatísticas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Local Storage</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">SPA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nansinyx26/sistemafuteboldebotao" class="project-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://nansinyx26.github.io/sistemafuteboldebotao/" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="SistemaCadastroEscolar.png" alt="Sistema Escolar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <i class="fas fa-school"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema Escolar</h3>
+                        <p>Sistema de gestão educacional com cadastro de alunos e professores. Interface responsiva e funcionalidades avançadas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nansinyx26/sistema-cadastro-escolar" class="project-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="SistemaAvaliador.png" alt="Sistema de Avaliação" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Avaliação</h3>
+                        <p>Interface intuitiva para avaliação estudantil com sistema de estrelas e feedback visual otimizado.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">UX/UI</span>
+                            <span class="tech-tag">Animations</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nansinyx26/Avalia-o_de_Aluno-Com_Estrela" class="project-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="SenhaCriptografada.png" alt="Cadastro de Senha Criptografada" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cadastro de Senha Criptografada</h3>
+                        <p>Sistema simples para cadastro e armazenamento de senhas com criptografia.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Cryptography</span>
+                            <span class="tech-tag">Security</span>
+                            <span class="tech-tag">Modern CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nansinyx26/Cadastra_Senha_Criptografada" class="project-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Vamos Criar Algo Incrível?</h2>
+            <div class="contact-content fade-in">
+                <p>Estou sempre aberto a novos desafios e oportunidades. Entre em contato para discutirmos como posso contribuir com tecnologias avançadas!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>Telefone</h4>
+                        <p>(19) 98427-5085</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Localização</h4>
+                        <p>Americana, SP</p>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="mailto:oliversinyxcontato@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Email
+                    </a>
+                    <a href="https://bit.ly/46QNGZv" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/Nansinyx26" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://bit.ly/46QNGZv" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://bit.ly/3TMRBAN" class="social-link" target="_blank" rel="noopener" aria-label="Certificados">
+                    <i class="fas fa-certificate"></i>
+                </a>
+                <a href="mailto:oliversinyxcontato@gmail.com" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Renan de Oliveira. Desenvolvido com tecnologias avançadas e muito ❤️</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
