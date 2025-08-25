@@ -558,3 +558,245 @@ window.addEventListener('scroll', () => {
         ticking = true;
     }
 });
+class Chatbot {
+    constructor() {
+        this.isOpen = false;
+        this.responses = this.generateResponses();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.loadWelcomeMessage();
+    }
+
+    setupEventListeners() {
+        const trigger = document.getElementById('chatbotTrigger');
+        const input = document.getElementById('chatbotInput');
+
+        trigger.addEventListener('click', () => this.toggleChat());
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.sendMessage();
+            }
+        });
+
+        // Close chatbot when clicking outside
+        document.addEventListener('click', (e) => {
+            const chatbotContainer = document.querySelector('.chatbot-container');
+            if (!chatbotContainer.contains(e.target) && this.isOpen) {
+                this.closeChat();
+            }
+        });
+    }
+
+    toggleChat() {
+        const window = document.getElementById('chatbotWindow');
+        const trigger = document.getElementById('chatbotTrigger');
+
+        if (this.isOpen) {
+            this.closeChat();
+        } else {
+            window.classList.add('active');
+            trigger.classList.remove('pulse');
+            this.isOpen = true;
+
+            // Focus on input
+            setTimeout(() => {
+                document.getElementById('chatbotInput').focus();
+            }, 300);
+        }
+    }
+
+    closeChat() {
+        const window = document.getElementById('chatbotWindow');
+        const trigger = document.getElementById('chatbotTrigger');
+
+        window.classList.remove('active');
+        trigger.classList.add('pulse');
+        this.isOpen = false;
+    }
+
+    async sendMessage() {
+        const input = document.getElementById('chatbotInput');
+        const message = input.value.trim();
+
+        if (!message) return;
+
+        this.addMessage(message, 'user');
+        input.value = '';
+
+        this.showTypingIndicator();
+
+        // Simulate AI processing time
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
+
+        this.hideTypingIndicator();
+        const response = this.generateResponse(message);
+        this.addMessage(response, 'bot');
+    }
+
+    addMessage(message, sender) {
+        const messagesContainer = document.getElementById('chatbotMessages');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender);
+        messageDiv.textContent = message;
+
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    showTypingIndicator() {
+        const messagesContainer = document.getElementById('chatbotMessages');
+        const typingDiv = document.createElement('div');
+        typingDiv.classList.add('typing-indicator');
+        typingDiv.id = 'typingIndicator';
+        typingDiv.innerHTML = `
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                `;
+
+        messagesContainer.appendChild(typingDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    hideTypingIndicator() {
+        const indicator = document.getElementById('typingIndicator');
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+
+    generateResponse(message) {
+        const lowercaseMessage = message.toLowerCase();
+
+        // Find best matching response
+        for (const category of this.responses) {
+            for (const keyword of category.keywords) {
+                if (lowercaseMessage.includes(keyword)) {
+                    const responses = category.responses;
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+            }
+        }
+
+        // Default response if no match found
+        return "Interessante pergunta! Posso te ajudar com informações sobre as habilidades do Renan, experiência profissional, projetos, educação ou contato. O que gostaria de saber especificamente?";
+    }
+
+    generateResponses() {
+        return [{
+                keywords: ['experiência', 'trabalho', 'emprego', 'profissional', 'carreira'],
+                responses: [
+                    "Renan tem experiência sólida como Técnico de Laboratório Jr. na Maker Mania LTDA (2025) e anteriormente na Amadotec (2023-2024). Trabalhou também na Secretaria da Educação com desenvolvimento em C# e suporte técnico. Tem experiência em prototipagem, impressão 3D, programação e integração de IAs educacionais.",
+                    "A experiência profissional do Renan inclui desenvolvimento de protótipos com impressoras 3D, programação de microcontroladores Arduino, elaboração de workshops sobre tecnologias maker e integração de ChatGPT e Claude AI em processos educacionais.",
+                ]
+            },
+            {
+                keywords: ['habilidades', 'skills', 'tecnologias', 'competências', 'conhecimentos'],
+                responses: [
+                    "As principais habilidades do Renan incluem: JavaScript, React, Three.js, C#, Python, Arduino, integração com ChatGPT e Claude AI, Prompt Engineering, impressão 3D, cortadora laser, prototipagem, eletrônica, Blender, Unity e desenvolvimento de jogos VR/AR.",
+                    "Renan é especialista em tecnologias maker (impressão 3D, cortadora laser, prototipagem), programação (JavaScript, C#, Python, Arduino), desenvolvimento 3D (Blender, WebGL, Three.js) e integração de Inteligência Artificial em processos educacionais.",
+                ]
+            },
+            {
+                keywords: ['projetos', 'portfolio', 'trabalhos', 'desenvolvimento'],
+                responses: [
+                    "Entre os projetos destacados estão: Maker Coins 3.0 (sistema de gamificação), Sistema Solar VR 3.0 (experiência em realidade virtual), Sistema de Futebol de Botão (plataforma de gerenciamento), Sistema Escolar e Sistema de Avaliação. Todos disponíveis no GitHub.",
+                    "Renan desenvolveu projetos inovadores como sistemas de gamificação, experiências VR educacionais, plataformas de gerenciamento e sistemas escolares. Você pode encontrar todos os projetos no GitHub: github.com/Nansinyx26",
+                ]
+            },
+            {
+                keywords: ['educação', 'formação', 'curso', 'faculdade', 'estudo'],
+                responses: [
+                    "Renan é graduado em Tecnologia em Jogos Digitais pela Fatec Americana. Tem conhecimento intermediário em inglês e é especialista em integração de IAs como ChatGPT e Claude em processos educacionais.",
+                    "Formação: Graduado em Tecnologia em Jogos Digitais pela Fatec Americana. Especialização em tecnologias maker, desenvolvimento de jogos, prototipagem e integração de Inteligência Artificial educacional.",
+                ]
+            },
+            {
+                keywords: ['contato', 'email', 'telefone', 'linkedin', 'localização'],
+                responses: [
+                    "Você pode entrar em contato com Renan através do email: oliversinyxcontato@gmail.com, telefone: (19) 98427-5085, LinkedIn: bit.ly/46QNGZv. Ele está localizado em Americana, SP.",
+                    "Para contato: Email: oliversinyxcontato@gmail.com | Telefone: (19) 98427-5085 | LinkedIn: bit.ly/46QNGZv | GitHub: github.com/Nansinyx26 | Localização: Americana, SP.",
+                ]
+            },
+            {
+                keywords: ['ia', 'inteligência artificial', 'ai', 'chatgpt', 'claude', 'prompt'],
+                responses: [
+                    "Renan é especialista em Prompt Engineering e integração de IAs como ChatGPT e Claude AI em processos educacionais e administrativos. Utiliza essas tecnologias para otimizar processos pedagógicos e criar experiências educacionais mais eficazes.",
+                    "A expertise em IA do Renan inclui uso avançado de ChatGPT e Claude AI para automação educacional, criação de material didático, otimização de processos e desenvolvimento de soluções inovadoras para laboratórios maker.",
+                ]
+            },
+            {
+                keywords: ['maker', 'impressão 3d', '3d', 'prototipagem', 'arduino'],
+                responses: [
+                    "Renan é especialista em tecnologias maker: impressão 3D, cortadora laser, prototipagem rápida, programação Arduino, desenvolvimento de circuitos eletrônicos e criação de projetos educacionais hands-on.",
+                    "Na área maker, Renan domina impressão 3D, prototipagem, eletrônica com Arduino, cortadora laser e desenvolvimento de workshops educacionais. Trabalha integrando tecnologia física com programação para criar soluções inovadoras.",
+                ]
+            },
+            {
+                keywords: ['jogos', 'unity', 'vr', 'ar', 'realidade virtual'],
+                responses: [
+                    "Renan desenvolveu projetos em VR como o Sistema Solar 3.0 Incialmente na faculdade, tem experiência com Unity para desenvolvimento de jogos e criação de experiências imersivas educacionais. Especialista em game design e prototipagem de jogos.",
+                    "Na área de jogos, Renan trabalha com Unity, desenvolvimento VR/AR, game design e criação de experiências interativas educacionais. Seu projeto Sistema Solar VR demonstra expertise em realidade virtual aplicada à educação.",
+                ]
+            },
+            {
+                keywords: ['web', 'javascript', 'react', 'threejs', 'frontend'],
+                responses: [
+                    "Renan domina tecnologias web modernas: JavaScript avançado, React, Three.js para gráficos 3D, GSAP para animações, CSS avançado e desenvolvimento de interfaces interativas e responsivas.",
+                    "No desenvolvimento web, Renan utiliza JavaScript, React, Three.js, WebGL, GSAP e CSS avançado para criar experiências visuais impactantes e interfaces modernas como este próprio portfólio.",
+                ]
+            },
+            {
+                keywords: ['disponibilidade', 'disponível', 'projetos', 'oportunidades'],
+                responses: [
+                    "Renan está disponível para novos projetos e oportunidades! Busca desafios em desenvolvimento, tecnologias maker, integração de IA educacional e projetos inovadores. Entre em contato para discutir colaborações.",
+                    "Sim! Renan está aberto a novas oportunidades em desenvolvimento de software, projetos maker, consultoria em IA educacional e criação de soluções tecnológicas inovadoras.",
+                ]
+            },
+            {
+                keywords: ['idade', 'anos', 'nascimento'],
+                responses: [
+                    "Renan tem 27 anos e está localizado em Americana, SP. Graduado em Tecnologia em Jogos Digitais com ampla experiência em desenvolvimento e tecnologias maker.",
+                ]
+            },
+            {
+                keywords: ['olá', 'oi', 'hello', 'hi', 'bom dia', 'boa tarde', 'boa noite'],
+                responses: [
+                    "Olá! Como posso te ajudar com informações sobre o Renan? Posso falar sobre suas habilidades, experiência, projetos, formação ou como entrar em contato com ele.",
+                    "Oi! Seja bem-vindo! Estou aqui para responder suas perguntas sobre o Renan de Oliveira. O que você gostaria de saber?",
+                ]
+            },
+            {
+                keywords: ['obrigado', 'obrigada', 'valeu', 'thanks', 'thank you'],
+                responses: [
+                    "Por nada! Fico feliz em ajudar. Se tiver mais dúvidas sobre o Renan ou quiser saber mais detalhes sobre algum projeto específico, estarei aqui!",
+                    "De nada! Espero ter ajudado. Qualquer outra pergunta sobre as habilidades, projetos ou experiência do Renan, pode perguntar!",
+                ]
+            }
+        ];
+    }
+
+    loadWelcomeMessage() {
+        // Welcome message is already in HTML
+    }
+}
+
+// Initialize Chatbot
+document.addEventListener('DOMContentLoaded', () => {
+    const chatbot = new Chatbot();
+    chatbot.init();
+});
+
+// Alternative initialization if DOMContentLoaded already fired
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        const chatbot = new Chatbot();
+        chatbot.init();
+    });
+} else {
+    const chatbot = new Chatbot();
+    chatbot.init();
+}
