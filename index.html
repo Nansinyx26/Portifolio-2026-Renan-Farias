@@ -2,6 +2,11 @@
 <html lang="pt-BR">
 
 <head>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/imagens/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/imagens/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagens/favicon-16x16.png">
+    <meta name="theme-color" content="#ffffff">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renan de Oliveira - Advanced Developer Portfolio</title>
@@ -10,8 +15,8 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="marcadagua.css">
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -100,7 +105,7 @@
             <div class="about-grid">
                 <div class="about-image fade-in">
                     <div class="profile-container">
-                        <img src="profile-img.jpg" alt="Renan de Oliveira" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/profile-img.jpg" alt="Renan de Oliveira" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="profile-placeholder" style="display: none;">
                             <i class="fas fa-user"></i>
                         </div>
@@ -280,7 +285,7 @@
             <div class="projects-grid">
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="MakerCoins3.0.png" alt="MakerCoins3.0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/MakerCoins3.0.png" alt="MakerCoins3.0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-coins"></i>
                         </div>
@@ -307,7 +312,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="SistemaSolar.png" alt="Sistema Solar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/SistemaSolar.png" alt="Sistema Solar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-globe"></i>
                         </div>
@@ -334,7 +339,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="SistemaFuteboldeBotão.png" alt="Sistema Futebol de Botão" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/SistemaFuteboldeBotão.png" alt="Sistema Futebol de Botão" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-futbol"></i>
                         </div>
@@ -361,7 +366,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="SistemaCadastroEscolar.png" alt="Sistema Escolar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/SistemaCadastroEscolar.png" alt="Sistema Escolar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-school"></i>
                         </div>
@@ -385,7 +390,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="SistemaAvaliador.png" alt="Sistema de Avaliação" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/SistemaAvaliador.png" alt="Sistema de Avaliação" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-star"></i>
                         </div>
@@ -409,7 +414,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="SenhaCriptografada.png" alt="Cadastro de Senha Criptografada" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="imagens/SenhaCriptografada.png" alt="Cadastro de Senha Criptografada" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-lock"></i>
                         </div>
@@ -484,8 +489,60 @@
                 </a>
             </div>
             <p>&copy; 2025 Renan de Oliveira. Desenvolvido com tecnologias avançadas e muito ❤️</p>
-        </div>
-    </footer>
+        <!-- ADICIONAR AQUI A MARCA D'ÁGUA -->
+        <a href="https://www.linkedin.com/in/renan-de-oliveira-farias-66a9b412b/" target="_blank" rel="noopener noreferrer" class="nandev-watermark">
+            <div class="holographic-overlay"></div>
+            <div class="geometric-particles" id="particles"></div>
+            
+            <div class="cube-container">
+                <div class="wireframe-cube">
+                    <div class="cube-face front">
+                        <div class="wireframe-lines">
+                            <div class="inner-line horizontal-line line-1"></div>
+                            <div class="inner-line horizontal-line line-2"></div>
+                            <div class="inner-line horizontal-line line-3"></div>
+                        </div>
+                    </div>
+                    <div class="cube-face back">
+                        <div class="wireframe-lines">
+                            <div class="inner-line vertical-line v-line-1"></div>
+                            <div class="inner-line vertical-line v-line-2"></div>
+                            <div class="inner-line vertical-line v-line-3"></div>
+                        </div>
+                    </div>
+                    <div class="cube-face right">
+                        <div class="wireframe-lines">
+                            <div class="inner-line horizontal-line line-1"></div>
+                            <div class="inner-line horizontal-line line-3"></div>
+                        </div>
+                    </div>
+                    <div class="cube-face left">
+                        <div class="wireframe-lines">
+                            <div class="inner-line vertical-line v-line-1"></div>
+                            <div class="inner-line vertical-line v-line-3"></div>
+                        </div>
+                    </div>
+                    <div class="cube-face top">
+                        <div class="wireframe-lines">
+                            <div class="inner-line horizontal-line line-2"></div>
+                        </div>
+                    </div>
+                    <div class="cube-face bottom">
+                        <div class="wireframe-lines">
+                            <div class="inner-line vertical-line v-line-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <span class="watermark-text">
+                Desenvolvido por <span class="watermark-highlight">Nan</span>dev
+            </span>
+            <span class="code-symbol">&lt;/&gt;</span>
+        </a>
+        
+    </div>
+</footer>
     <script src="script.js"></script>
 
     <!-- Chatbot HTML Structure -->
