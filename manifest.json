@@ -2,7 +2,7 @@
   "name": "Renan de Oliveira - Portfolio",
   "short_name": "Renan Portfolio",
   "lang": "pt-BR",
-  "description": "Portfolio de Renan de Oliveira - Desenvolvedor especializado em JavaScript, React, Three.js, Arduino, Impressão 3D e tecnologias maker",
+  "description": "Portfolio de Renan de Oliveira - Desenvolvedor Junior JavaScript, Arduino, Impressão 3D e tecnologias maker",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -45,3 +45,4 @@
   "related_applications": [],
   "prefer_related_applications": false
 }
+
