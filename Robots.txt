@@ -1,0 +1,47 @@
+# Robots.txt para Portfolio de Renan de Oliveira
+# Permite acesso para todos os motores de busca
+User-agent: *
+Allow: /
+
+# Permitir acesso específico aos principais bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Bloquear acesso a arquivos desnecessários para SEO
+Disallow: *.css$
+Disallow: *.js$
+Disallow: /imagens/*.png$
+Disallow: /imagens/*.jpg$
+Disallow: /imagens/*.jpeg$
+Disallow: /imagens/*.gif$
+
+# Permitir acesso ao manifest para PWA
+Allow: /manifest.json
+
+# User-agents específicos que devem ter acesso total
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Localização do Sitemap
+Sitemap: https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/sitemap.xml
+
+# Taxa de crawling (opcional - para evitar sobrecarga)
+Crawl-delay: 1
