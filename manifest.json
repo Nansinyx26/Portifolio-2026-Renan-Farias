@@ -1,55 +1,47 @@
 {
-  "name": "Fabricio Porto - Violinista Profissional",
-  "short_name": "Fabricio Porto",
-  "description": "Violinista clássico profissional especializado em casamentos, debutantes, eventos corporativos e apresentações musicais",
+  "name": "Renan de Oliveira - Portfolio",
+  "short_name": "Renan Portfolio",
   "lang": "pt-BR",
+  "description": "Portfolio de Renan de Oliveira - Desenvolvedor especializado em JavaScript, React, Three.js, Arduino, Impressão 3D e tecnologias maker",
   "start_url": "./",
-  "display": "standalone",
-  "orientation": "portrait-primary",
-  "theme_color": "#d4af37",
-  "background_color": "#1a1a1a",
   "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#00ff88",
+  "background_color": "#000000",
+  "categories": ["utilities", "portfolio", "developer"],
   "icons": [
     {
-      "src": "images/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "images/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "images/favicon-48x48.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "images/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "images/android-chrome-192x192.png",
+      "src": "./imagens/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "images/android-chrome-512x512.png",
+      "src": "./imagens/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "./imagens/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./imagens/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./imagens/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "categories": ["music", "entertainment", "business"],
-  "screenshots": [
-    {
-      "src": "images/fabricio1.webp",
-      "sizes": "1280x720",
-      "type": "image/webp",
-      "form_factor": "wide"
-    }
-  ]
+  "related_applications": [],
+  "prefer_related_applications": false
 }
