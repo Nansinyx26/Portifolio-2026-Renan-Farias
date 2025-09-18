@@ -1,579 +1,785 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!-- Substitua a seção HEAD do seu index.html por esta versão corrigida -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renan de Oliveira - Advanced Developer Portfolio</title>
-    <meta name="description" content="Portfolio avançado com React, Three.js, GSAP e tecnologias cutting-edge">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fabricio Porto",
+  "jobTitle": "Violinista",
+  "description": "Violinista clássico profissional especializado em casamentos e eventos",
+  "url": "https://nansinyx26.github.io/Fabricio-Porto-Violinista/",
+  "email": "fabricioportoviolinista@gmail.com",
+  "telephone": "+5519999011288",
+  "address": {
+    "@type": "PostalAddress",
+     "addressLocality": "Americana",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://instagram.com/fabricioportoviolinista",
+    "https://youtube.com/@fabricioportoviolinista"
+  ]
+}
+</script>
 
-    <!-- Favicons com caminhos relativos -->
-    <link rel="apple-touch-icon" sizes="180x180" href="imagens/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SEU_ID_REAL'); <!-- Substitua pelo ID real do GA4 -->
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- SEO Meta Tags Otimizadas -->
+    <title>Fabricio Porto - Violinista | Casamentos, Eventos e Apresentações</title>
+    <meta name="description" content="Fabricio Porto é um violinista profissional com mais de 10 anos de experiência. Especializado em casamentos, debutantes, jantares de gala e eventos corporativos. Formado pela UNIMEP, oferece repertório clássico e contemporâneo personalizado.">
+    <meta name="keywords" content="violinista, violino, casamentos, eventos, música clássica, Fabricio Porto, apresentações, debutantes, jantares de gala, São Paulo, Piracicaba, músico profissional, orquestra, UNIMEP">
+    <meta name="author" content="Fabricio Porto">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.placename" content="São Paulo, Brasil">
     
-    <!-- Manifest com caminho relativo -->
-    <link rel="manifest" href="manifest.json">
+    <!-- ADICIONADO: Meta tag viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:title" content="Fabricio Porto - Violinista | Casamentos e Eventos">
+    <meta property="og:description" content="Transformando emoções em música através das cordas do violino. Violinista profissional especializado em oferecer qualidade musical para o seu evento de forma personalizada e tocante.">
+    <meta property="og:image" content="https://nansinyx26.github.io/Fabricio-Porto-Violinista/images/fabricio1.jpg">
+    <meta property="og:image:alt" content="Fabricio Porto tocando violino em um evento">
+    <meta property="og:url" content="https://nansinyx26.github.io/Fabricio-Porto-Violinista/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Fabricio Porto - Violinista">
     
-    <meta name="theme-color" content="#00ff88">
-    <meta name="msapplication-TileColor" content="#00ff88">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://nansinyx26.github.io/Fabricio-Porto-Violinista/">
+    <meta name="twitter:title" content="Fabricio Porto - Violinista ">
+    <meta name="twitter:description" content="Violinista profissional especializado em casamentos e eventos. Repertório clássico e contemporâneo personalizado.">
+    <meta name="twitter:image" content="https://nansinyx26.github.io/Fabricio-Porto-Violinista/images/fabricio1.jpg">
+    <meta name="twitter:image:alt" content="Fabricio Porto violinista profissional">
+    
+ <!-- Cor do tema para mobile -->
+  <meta name="theme-color" content="#d4af37">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+   <link rel="icon" href="imagens/logo.png" type="image/png">
+
+  <!-- Canonical URL -->
+    <link rel="canonical" href="https://nansinyx26.github.io/Fabricio-Porto-Violinista/">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fabricio Porto",
+  "jobTitle": "Violinista",
+  "description": "Violinista clássico profissional especializado em casamentos e eventos",
+  "url": "https://nansinyx26.github.io/Fabricio-Porto-Violinista/",
+  "email": "fabricioportoviolinista@gmail.com",
+  "telephone": "+5519999011288",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://instagram.com/fabricioportoviolinista",
+    "https://youtube.com/@fabricioportoviolinista"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Fabricio Porto - Violinista",
+    "alternateName": "Fabricio Porto",
+    "description": "Violinista  profissional especializado em casamentos, debutantes, jantares de gala e eventos corporativos",
+    "url": "https://nansinyx26.github.io/Fabricio-Porto-Violinista/",
+    "image": "https://nansinyx26.github.io/Fabricio-Porto-Violinista/images/fabricio1.jpg",
+    "logo": "https://nansinyx26.github.io/Fabricio-Porto-Violinista/images/FP.png",
+    "sameAs": [
+        "https://instagram.com/fabricioportoviolinista",
+        "https://youtube.com/@fabricioportoviolinista"
+    ],
+    "founder": {
+        "@type": "Person",
+        "name": "Fabricio Porto",
+        "jobTitle": "Violinista Profissional",
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "UNIMEP - Universidade Metodista de Piracicaba"
+        },
+        "performerIn": [
+            "Orquestra Sinfônica de Santa Bárbara D'Oeste",
+            "Orquestra Educacional de Piracicaba",
+            "Orquestra Infanto-Juvenil da Escola de Música de Piracicaba Ernst Malhe"
+        ]
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-19-99901-1288",
+        "contactType": "customer service",
+        "email": "fabricioportoviolinista@gmail.com",
+        "availableLanguage": "Portuguese"
+    }
+
+
+{
+    "name": "Fabricio Porto - Violinista Profissional",
+    "short_name": "Fabricio Porto",
+    "description": "Violinista clássico profissional especializado em casamentos, debutantes, eventos corporativos e apresentações musicais",
+    "lang": "pt-BR",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "theme_color": "#d4af37",
+    "background_color": "#1a1a1a",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/images/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["music", "entertainment", "business"],
+    "screenshots": [
+        {
+            "src": "/images/fabricio1.webp",
+            "sizes": "1280x720",
+            "type": "image/webp",
+            "form_factor": "wide"
+        }
+    ]
+}
+
+
+}
+</script> 
+    <!-- Favicon e Icons -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <!-- CSS Base (para desktop e estilos gerais) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+     <link rel="stylesheet" href="chrome-scrollbar.css">
+
+    <!-- Carregamento Condicional de CSS e JS para Mobile -->
+    <script>
+        // Função para carregar assets específicos para mobile
+        function loadMobileAssets() {
+            // Define o breakpoint mobile (deve ser o mesmo usado no CSS)
+            const MOBILE_BREAKPOINT = 768; 
+            const isMobileDevice = window.innerWidth <= MOBILE_BREAKPOINT;
+
+            // Remove assets mobile existentes para evitar duplicação em resize
+            document.querySelectorAll('link[data-mobile-asset], script[data-mobile-asset]').forEach(el => el.remove());
+
+            if (isMobileDevice) {
+                // Carrega CSS específico para mobile
+                const mobileCss = document.createElement('link');
+                mobileCss.rel = 'stylesheet';
+                mobileCss.href = 'mobileCss.css';
+                mobileCss.setAttribute('data-mobile-asset', 'true'); // Marca para fácil remoção
+                document.head.appendChild(mobileCss);
+
+                // Carrega JS específico para mobile
+                const mobileJs = document.createElement('script');
+                mobileJs.src = 'mobileJs.js';
+                mobileJs.setAttribute('data-mobile-asset', 'true'); // Marca para fácil remoção
+                // Adiciona ao body para não bloquear o render da página
+                document.body.appendChild(mobileJs); 
+            }
+        }
+
+        // Executa a função quando o DOM estiver completamente carregado
+        document.addEventListener('DOMContentLoaded', loadMobileAssets);
+        // Re-executa a função em caso de redimensionamento da janela (ex: rotação de tela em mobile)
+        window.addEventListener('resize', loadMobileAssets);
+    </script>
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">  
-    <link rel="stylesheet" href="marcadagua.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="images/FP2.png" as="image">
+    <link rel="preload" href="images/fabricio1.jpg" as="image">
+    <link rel="preload" href="images/fabricio2.jpg" as="image">
 
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Performance optimizations -->
+    <meta name="theme-color" content="#d4af37">
+    
+    <!-- Mobile optimizations -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="7 days">
+    
 </head>
 
-<body data-theme="dark">
-    <!-- Loading Screen -->
-    <div class="loader">
-        <div class="loader-text">Carregando...</div>
-    </div>
+<body>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <!-- Background elements -->
+    <div class="bg-pattern" aria-hidden="true"></div>
+    <div class="wood-texture" aria-hidden="true"></div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="logo">RO</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                <li><a href="#experience" class="nav-link">Experiências</a></li>
-                <li><a href="#projects" class="nav-link">Projetos</a></li>
-                <li><a href="#contact" class="nav-link">Contato</a></li>
+    <!-- Enhanced musical notes with more quantity -->
+    <!-- Estas notas serão escondidas pelo styles_mobile.css em mobile -->
+    <div class="musical-note note-1" aria-hidden="true">♪</div>
+    <div class="musical-note note-2" aria-hidden="true">♫</div>
+    <div class="musical-note note-3" aria-hidden="true">♪</div>
+    <div class="musical-note note-4" aria-hidden="true">♬</div>
+    <div class="musical-note note-5" aria-hidden="true">♪</div>
+    <div class="musical-note note-6" aria-hidden="true">♫</div>
+    <div class="musical-note note-7" aria-hidden="true">♪</div>
+    <div class="musical-note note-8" aria-hidden="true">♬</div>
+    <div class="musical-note note-9" aria-hidden="true">♪</div>
+    <div class="musical-note note-10" aria-hidden="true">♫</div>
+    <div class="musical-note note-11" aria-hidden="true">♪</div>
+    <div class="musical-note note-12" aria-hidden="true">♬</div>
+
+  <nav id="navbar" role="navigation" aria-label="Menu principal">
+        <div class="nav-container">
+            <a href="https://nansinyx26.github.io/Fabricio-Porto-Violinista/" class="logo">Fabricio - Violinista</a>
+            
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none">
+                    <a href="#home" role="menuitem">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Início</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#about" role="menuitem">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span>Sobre</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#repertoire" role="menuitem">
+                        <i class="fas fa-music" aria-hidden="true"></i>
+                        <span>Repertório</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#performances" role="menuitem">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <span>Apresentações</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#social-media" role="menuitem">
+                        <i class="fas fa-share-alt" aria-hidden="true"></i>
+                        <span>Redes Sociais</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#partners" role="menuitem">
+                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                        <span>Parceiros</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#contact" role="menuitem">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contato</span>
+                    </a>
+                </li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-                <i class="fas fa-moon" id="themeIcon"></i>
-            </button>
-
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu móvel">
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu de navegação" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <ul class="mobile-nav-links">
-                <li><a href="#home" class="mobile-nav-link">Home</a></li>
-                <li><a href="#about" class="mobile-nav-link">Sobre</a></li>
-                <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
-                <li><a href="#experience" class="mobile-nav-link">Experiências</a></li>
-                <li><a href="#projects" class="mobile-nav-link">Projetos</a></li>
-                <li><a href="#contact" class="mobile-nav-link">Contato</a></li>
-            </ul>
         </div>
-    </header>
+    </nav>
+
+
+    <!-- AI Assistant Chat Widget -->
+    <aside id="aiAssistant" class="ai-assistant" aria-label="Assistente virtual">
+        <button class="ai-toggle" id="aiToggle" aria-label="Abrir chat do assistente virtual">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+            <span class="ai-badge" id="aiBadge" aria-hidden="true">1</span>
+        </button>
+        <div class="ai-chat" id="aiChat" role="dialog" aria-labelledby="ai-title" aria-hidden="true">
+            <header class="ai-header">
+                <div class="ai-avatar" aria-hidden="true">
+                    <i class="fas fa-violin" aria-hidden="true"></i>
+                </div>
+                <div class="ai-title">
+                    <h4 id="ai-title">Assistente Virtual</h4>
+                    <p>Como posso ajudar?</p>
+                </div>
+                <button class="ai-close" id="aiClose" aria-label="Fechar chat">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </header>
+            <div class="ai-messages" id="aiMessages" role="log" aria-live="polite" aria-label="Mensagens do chat">
+                <div class="ai-message bot-message">
+                    <div class="message-content">
+                        Olá! Sou o assistente virtual do Fabricio. Posso ajudar com informações sobre apresentações, repertório, preços e disponibilidade. Como posso ajudar você hoje?
+                    </div>
+                    <div class="message-time">Agora</div>
+                </div>
+            </div>
+            <div class="ai-quick-questions" role="toolbar" aria-label="Perguntas rápidas">
+                <button class="quick-btn" data-question="precos" aria-label="Perguntar sobre preços">💰 Preços</button>
+                <button class="quick-btn" data-question="repertorio" aria-label="Perguntar sobre repertório">🎵 Repertório</button>
+                <button class="quick-btn" data-question="casamento" aria-label="Perguntar sobre casamentos">💍 Casamentos</button>
+                <button class="quick-btn" data-question="disponibilidade" aria-label="Perguntar sobre disponibilidade">📅 Disponibilidade</button>
+            </div>
+            <div class="ai-input" role="form">
+                <label for="aiInput" class="sr-only">Digite sua pergunta</label>
+                <input type="text" id="aiInput" placeholder="Digite sua pergunta..." aria-describedby="ai-help">
+                <button id="aiSend" aria-label="Enviar mensagem">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                <div id="ai-help" class="sr-only">Digite sua pergunta e pressione Enter ou clique no botão enviar</div>
+            </div>
+        </div>
+    </aside>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <canvas class="hero-canvas" id="heroCanvas"></canvas>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>🚀</span>
-                <span class="badge-text">Disponível para novos projetos</span>
+    <main>
+        <section id="home" class="hero" role="banner" aria-labelledby="main-title">
+            <div class="hero-content">
+                <h1 id="main-title">Fabricio Porto</h1>
+                <p class="typing-text" id="typingText" aria-live="polite"></p>
+                <p class="description">
+                    Transformando emoções em música através das cordas do violino. Uma jornada musical que conecta tradição clássica com expressão contemporânea. Violinista profissional especializado em oferecer qualidade musical para o seu evento de forma personalizada e tocante. 
+                </p>
+                <div class="cta-buttons">
+                    <a href="#performances" class="btn btn-primary" aria-describedby="cta-performances-desc">
+                        <i class="fas fa-music" aria-hidden="true"></i>
+                        <span>Apresentações</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" aria-describedby="cta-contact-desc">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Entre em Contato</span>
+                    </a>
+                </div>
+                <div class="sr-only">
+                    <div id="cta-performances-desc">Veja os tipos de apresentações e eventos que realizo</div>
+                    <div id="cta-contact-desc">Entre em contato para agendar uma apresentação</div>
+                </div>
             </div>
-            <h1 class="hero-title">RENAN DE OLIVEIRA</h1>
-            <div class="hero-subtitle">
-                <span id="typed-text"></span>
-                <span class="typing-cursor"></span>
-            </div>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                <a href="#contact" class="btn btn-secondary">Contato</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title fade-in">Sobre Mim</h2>
-            <div class="about-grid">
-                <div class="about-image fade-in">
-                    <div class="profile-container">
-                        <img src="imagens/profile-img.jpg" alt="Renan de Oliveira" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="profile-placeholder" style="display: none;">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="profile-ring"></div>
+            <!-- Enhanced FP Logo with Glow Effects -->
+            <div class="fp-musical-note" aria-hidden="true">
+                <div class="fp-logo-container">
+                    <img src="images/FP2.png" alt="Logo FP - Fabricio Porto Violinista" loading="eager" onerror="this.style.display='none'">
+                    <div class="glow-effect" aria-hidden="true"></div>
+                    <div class="pulse-ring" aria-hidden="true"></div>
+                    <div class="pulse-ring" aria-hidden="true"></div>
+                    <div class="pulse-ring" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-observer" aria-labelledby="about-title">
+            <h2 id="about-title" class="section-title">Sobre o Artista</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        <strong>Fabricio Porto</strong> é um artista musical desde os 15 anos de idade, tocando violino em diversos eventos como casamentos, festas de debutantes, jantares de gala, recepções, aniversários e funerais religiosos. Combina técnica refinada com interpretação emotiva que cativa audiências.
+                    </p>
+                    <p>
+                        <strong>Formação Acadêmica:</strong> Graduado em Música pela <em>UNIMEP - Universidade Metodista de Piracicaba</em> em 2015. Possui experiência na Orquestra Sinfônica de Santa Bárbara D'Oeste, Orquestra Educacional de Piracicaba e Orquestra Infanto-Juvenil da Escola de Música de Piracicaba Ernst Malhe (2012-2016).
+                    </p>
+                    <p>
+                        <strong>Experiência Educacional:</strong> Professor de Música particular com ênfase no violino para qualquer idade. Ministrou aulas para o Instituto de Música de Sumaré/SP (IMS) e garantiu o 2° lugar no Processo Seletivo como professor de música na rede pública municipal de Águas de São Pedro (2020). Desenvolveu projetos de Eletivas de Música para o Programa de Ensino Integral do Estado de São Paulo (2021-2024) e atualmente leciona Arte Educação como concursado pela Prefeitura de Americana/SP.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="about-photo">
+                        <img src="images/fabricio2.webp" alt="Fabricio Porto tocando violino durante uma apresentação musical" class="artist-photo" loading="lazy">
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="about-content fade-in">
-                    <h3>Desenvolvedor & Especialista em Tecnologias Maker</h3>
-                    <p>Graduado em Tecnologia em Jogos Digitais pela Fatec Americana, com experiência sólida em desenvolvimento de protótipos, programação e tecnologias maker.</p>
-                    <p>Especialista em integração de Inteligência Artificial em processos educacionais e desenvolvimento. Atualmente trabalho na Maker Mania LTDA como Técnico de Laboratório Jr.</p>
-                    <p>Utilizo IAs como ChatGPT e Claude para otimizar processos e criar experiências educacionais mais eficazes, combinando tecnologia de ponta com metodologias inovadoras.</p>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Americana, SP</span>
+        <!-- Repertório Section -->
+        <section id="repertoire" class="section-observer" aria-labelledby="repertoire-title">
+            <h2 id="repertoire-title" class="section-title">Repertório Musical</h2>
+            <div class="repertoire-grid" role="list">
+                <article class="repertoire-card" role="listitem">
+                    <div class="card-icon" aria-hidden="true">
+                        <i class="bi bi-music-note-list"></i>
+                    </div>
+                    <h3>Do erudito ao popular </h3>
+                    <ul>
+                        <li>Pachelbel - Canon</li>
+                     
+                   
+                </article>
+            </div>
+        </section>
+
+        <!-- Performances Section -->
+        <section id="performances" class="section-observer" aria-labelledby="performances-title">
+            <h2 id="performances-title" class="section-title">Tipos de Apresentações</h2>
+            <div class="performances-content">
+                <div class="performance-types" role="list">
+                    <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
+                            <i class="bi bi-arrow-through-heart-fill"></i>
                         </div>
-                        <div class="info-item">
+                        <h3>Casamentos</h3>
+                        <p>Cerimônias inesquecíveis com música que eterniza o momento mais especial do casal. Repertório romântico incluindo entrada da noiva, cerimônia e festa.</p>
+                    </article>
+
+                    <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Festa de Debutantes</h3>
+                        <p>Celebrações elegantes que marcam a transição para a vida adulta com sofisticação musical. Apresentações personalizadas para cada debutante.</p>
+                    </article>
+
+                    <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
                             <i class="fas fa-birthday-cake"></i>
-                            <span>27 anos</span>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Graduado em Jogos Digitais</span>
+                        <h3>Aniversários</h3>
+                        <p>Comemorações especiais com música personalizada para tornar cada momento único e memorável. Repertório adaptado ao gosto do aniversariante.</p>
+                    </article>
+
+                    <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
+                            <i class="fas fa-champagne-glasses"></i>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-language"></i>
-                            <span>Inglês: Intermediário</span>
+                        <h3>Recepções</h3>
+                        <p>Eventos corporativos e sociais com música ambiente sofisticada que impressiona convidados. Criação de uma atmosfera profissional e única.</p>
+                    </article>
+
+                    <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
+                            <i class="fas fa-heart"></i>
                         </div>
-                    </div>
+                        <h3>Jantares de Gala</h3>
+                        <p>Tornando o ambiente elegante e sofisticado com melodias que elevam o nível de qualquer evento. Música incisiva discreta e refinada.</p>
+                    </article>
+
+                     <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
+                            <i class="bi bi-box2-heart-fill"></i>
+                        </div>
+                        <h3>Homenagens</h3>
+                        <p>Momentos de carinho e reconhecimento para celebrar a vida e guardar na memória,  sejam surpresas, celebrações de vida, agradecimentos ou simples gestos de carinho.</p>
+                    </article>
+
+                    <article class="performance-card" role="listitem">
+                        <div class="performance-icon" aria-hidden="true">
+                            <i class="fas fa-cross"></i>
+                        </div>
+                        <h3>Funerais Religiosos</h3>
+                        <p>Homenagens respeitosas com música que consola e honra a memória de entes queridos. Com repertório Sacro, Melancólico e/ou Contemplativo.</p>
+                    </article>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Habilidades Técnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programação</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Three.js</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Arduino</span>
-                        <span class="skill-tag">Claude AI and ChatGPT</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🤖</div>
-                    <h3>Inteligência Artificial</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ChatGPT</span>
-                        <span class="skill-tag">Claude AI</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Automação</span>
-                        <span class="skill-tag">IA Educacional</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🔧</div>
-                    <h3>Tecnologias Maker</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Impressão 3D</span>
-                        <span class="skill-tag">Cortadora Laser</span>
-                        <span class="skill-tag">Prototipagem</span>
-                        <span class="skill-tag">Eletrônica</span>
-                        <span class="skill-tag">Microcontroladores</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🎨</div>
-                    <h3>Design & 3D</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Blender</span>
-                        <span class="skill-tag">Tinkercad</span>
-                        <span class="skill-tag">WebGL</span>
-                        <span class="skill-tag">GSAP</span>
-                        <span class="skill-tag">CSS Avançado</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🎮</div>
-                    <h3>Desenvolvimento de Jogos</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Unity</span>
-                        <span class="skill-tag">Game Design</span>
-                        <span class="skill-tag">VR/AR</span>
-                        <span class="skill-tag">Prototipagem</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🏫</div>
-                    <h3>Educação Tech</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Workshops</span>
-                        <span class="skill-tag">Mentoria</span>
-                        <span class="skill-tag">Material Didático</span>
-                        <span class="skill-tag">IA na Educação</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title fade-in">Experiência Profissional</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <h3>Técnico de Laboratório Jr.</h3>
-                        <div class="company">Maker Mania LTDA</div>
-                        <div class="period">Fev/2025 - Dez/2025</div>
-                        <p>Desenvolvimento de protótipos com impressoras 3D, gestão de laboratório maker, ensino de programação e integração de IAs (ChatGPT, Claude) para otimizar processos pedagógicos e administrativos.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Técnico de Laboratório Jr.</h3>
-                        <div class="company">Amadotec</div>
-                        <div class="period">Abr/2023 - Dez/2024</div>
-                        <p>Prototipagem rápida, desenvolvimento com impressoras 3D, programação de microcontroladores Arduino e elaboração de workshops sobre tecnologias maker.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3>Estágio em Suporte de TI</h3>
-                        <div class="company">Secretaria da Educação</div>
-                        <div class="period">Jul/2021 - Mar/2023</div>
-                        <p>Desenvolvimento em C#, aplicações web, suporte técnico, manutenção de redes e sistemas educacionais Google for Education.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <div class="timeline-icon">
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <h3>Operador Comercial</h3>
-                        <div class="company">Lojas Americanas S/A</div>
-                        <div class="period">Set/2019 - Set/2020</div>
-                        <p>Atendimento ao cliente, gestão de estoque, atividades administrativas e suporte utilizando Pacote Office.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Projetos em Destaque</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="imagens/MakerCoins3.0.png" alt="MakerCoins3.0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="project-placeholder" style="display: none;">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Maker Coins 3.0</h3>
-                        <p>Sistema de moedas virtuais para gamificação de atividades em laboratórios maker. Interface moderna com recursos avançados de JavaScript.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">Gamification</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nansinyx26/Maker_Coins3.00" class="project-link" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="https://nansinyx26.github.io/Maker_Coins3.00" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="imagens/SistemaSolar.png" alt="Sistema Solar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="project-placeholder" style="display: none;">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sistema Solar VR 3.0</h3>
-                        <p>Experiência imersiva do sistema solar em realidade virtual. Desenvolvido com Unity e tecnologias avançadas de VR para educação.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">VR</span>
-                            <span class="tech-tag">WebGL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nansinyx26/Sistema-Solar-VR" class="project-link" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="https://nansinyx26.github.io/Sistema-Solar-3.0-VR/" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="imagens/SistemaFuteboldeBotão.png" alt="Sistema Futebol de Botão" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="project-placeholder" style="display: none;">
-                            <i class="fas fa-futbol"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sistema Futebol de Botão</h3>
-                        <p>Plataforma completa para gerenciamento de campeonatos. Interface moderna com controle de jogadores, times e estatísticas.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Local Storage</span>
-                            <span class="tech-tag">CSS Grid</span>
-                            <span class="tech-tag">SPA</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nansinyx26/sistemafuteboldebotao" class="project-link" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="https://nansinyx26.github.io/sistemafuteboldebotao/" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="imagens/SistemaCadastroEscolar.png" alt="Sistema Escolar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="project-placeholder" style="display: none;">
-                            <i class="fas fa-school"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sistema Escolar</h3>
-                        <p>Sistema de gestão educacional com cadastro de alunos e professores. Interface responsiva e funcionalidades avançadas.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">Responsive</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nansinyx26/sistema-cadastro-escolar" class="project-link" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="imagens/SistemaAvaliador.png" alt="Sistema de Avaliação" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="project-placeholder" style="display: none;">
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sistema de Avaliação</h3>
-                        <p>Interface intuitiva para avaliação estudantil com sistema de estrelas e feedback visual otimizado.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">UX/UI</span>
-                            <span class="tech-tag">Animations</span>
-                            <span class="tech-tag">Responsive</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nansinyx26/Avalia-o_de_Aluno-Com_Estrela" class="project-link" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="imagens/SenhaCriptografada.png" alt="Cadastro de Senha Criptografada" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="project-placeholder" style="display: none;">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Cadastro de Senha Criptografada</h3>
-                        <p>Sistema simples para cadastro e armazenamento de senhas com criptografia.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Cryptography</span>
-                            <span class="tech-tag">Security</span>
-                            <span class="tech-tag">Modern CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nansinyx26/Cadastra_Senha_Criptografada" class="project-link" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Vamos Criar Algo Incrível?</h2>
-            <div class="contact-content fade-in">
-                <p>Estou sempre aberto a novos desafios e oportunidades. Entre em contato para discutirmos como posso contribuir com tecnologias avançadas!</p>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h4>Telefone</h4>
-                        <p>(19) 98427-5085</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h4>Localização</h4>
-                        <p>Americana, SP</p>
-                    </div>
-                </div>
-
-                <div class="hero-buttons">
-                    <a href="mailto:oliversinyxcontato@gmail.com" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Enviar Email
-                    </a>
-                    <a href="https://bit.ly/46QNGZv" class="btn btn-secondary" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/Nansinyx26" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://bit.ly/46QNGZv" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://bit.ly/3TMRBAN" class="social-link" target="_blank" rel="noopener" aria-label="Certificados">
-                    <i class="fas fa-certificate"></i>
-                </a>
-                <a href="mailto:oliversinyxcontato@gmail.com" class="social-link" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p>&copy; 2025 Renan de Oliveira. Desenvolvido com tecnologias avançadas e muito ❤️</p>
-        <!-- ADICIONAR AQUI A MARCA D'ÁGUA -->
-        <a href="https://www.linkedin.com/in/renan-de-oliveira-farias-66a9b412b/" target="_blank" rel="noopener noreferrer" class="nandev-watermark">
-            <div class="holographic-overlay"></div>
-            <div class="geometric-particles" id="particles"></div>
+       <!-- Redes Sociais Section -->
+<section id="social-media" class="section-observer" aria-labelledby="social-title">
+    <h2 id="social-title" class="section-title">Redes Sociais</h2>
+    <div class="social-content">
+        <p class="social-description">
+            Acompanhe meu trabalho e fique por dentro das novidades musicais. Veja vídeos das apresentações e conheça mais sobre o meu repertório.
+        </p>
+        <nav class="social-links" aria-label="Links para redes sociais">
             
-            <div class="cube-container">
-                <div class="wireframe-cube">
-                    <div class="cube-face front">
-                        <div class="wireframe-lines">
-                            <div class="inner-line horizontal-line line-1"></div>
-                            <div class="inner-line horizontal-line line-2"></div>
-                            <div class="inner-line horizontal-line line-3"></div>
-                        </div>
-                    </div>
-                    <div class="cube-face back">
-                        <div class="wireframe-lines">
-                            <div class="inner-line vertical-line v-line-1"></div>
-                            <div class="inner-line vertical-line v-line-2"></div>
-                            <div class="inner-line vertical-line v-line-3"></div>
-                        </div>
-                    </div>
-                    <div class="cube-face right">
-                        <div class="wireframe-lines">
-                            <div class="inner-line horizontal-line line-1"></div>
-                            <div class="inner-line horizontal-line line-3"></div>
-                        </div>
-                    </div>
-                    <div class="cube-face left">
-                        <div class="wireframe-lines">
-                            <div class="inner-line vertical-line v-line-1"></div>
-                            <div class="inner-line vertical-line v-line-3"></div>
-                        </div>
-                    </div>
-                    <div class="cube-face top">
-                        <div class="wireframe-lines">
-                            <div class="inner-line horizontal-line line-2"></div>
-                        </div>
-                    </div>
-                    <div class="cube-face bottom">
-                        <div class="wireframe-lines">
-                            <div class="inner-line vertical-line v-line-2"></div>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/fabricioporto_violinista?igsh=cTl2NG1pcW91dHJv" 
+               class="social-link instagram" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Seguir no Instagram - Fabricio Porto Violinista">
+                <div class="social-icon" aria-hidden="true">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-info">
+                    <span class="social-name">Instagram</span>
+                    <span class="social-desc">Fotos e vídeos das apresentações</span>
+                </div>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@fabricioporto_violinista" 
+               class="social-link youtube" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Inscrever-se no canal do YouTube - Fabricio Porto Violinista">
+                <div class="social-icon" aria-hidden="true">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="social-info">
+                    <span class="social-name">YouTube</span>
+                    <span class="social-desc">Repertório e performances</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+</section>
+
+
+        <!-- Parceiros Section -->
+        <section id="partners" class="section-observer" aria-labelledby="partners-title">
+            <h2 id="partners-title" class="section-title">Parceiros Profissionais</h2>
+            <div class="partners-content">
+                <p class="partners-description">
+                    Profissionais qualificados que colaboram para criar experiências musicais únicas e memoráveis em cada evento.
+                </p>
+                <div class="partners-grid" id="partnersGrid" role="list" aria-label="Lista de parceiros">
+                    <!-- Os cards serão populados via JavaScript -->
+                </div>
+                <div class="partners-loading" id="partnersLoading" aria-hidden="true">
+                    <div class="loading-spinner" aria-hidden="true"></div>
+                    <p>Carregando parceiros...</p>
+                </div>
+                <div class="partners-empty" id="partnersEmpty" style="display: none;" role="status">
+                    <p>Nenhum parceiro encontrado no momento.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contato Section -->
+    <section id="contact" class="section-observer" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section-title">Entre em Contato</h2>
+        <div class="contact-content">
+            <article class="contact-card">
+                <div class="photo-frame">
+                    <div class="photo-inner">
+                        <img src="images/fabricio1.webp" alt="Fabricio Porto - Violinista Profissional" class="contact-photo" loading="lazy">
+                        <div class="photo-placeholder" aria-hidden="true">
+                            <i class="fas fa-user" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <span class="watermark-text">
-                Desenvolvido por <span class="watermark-highlight">Nan</span>dev
-            </span>
-            <span class="code-symbol">&lt;/&gt;</span>
+                <h1 class="artist-name">Fabricio Porto</h1>
+                <p class="artist-title">Violinista Clássico Profissional</p>
+                <address class="contact-buttons">
+                    <a href="https://api.whatsapp.com/send?phone=5519999011288&text=Olá%20Fabricio,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20musicais." 
+                       class="contact-btn whatsapp-btn" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       aria-label="Contato via WhatsApp - (19) 99901-1288">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="http://t.me/Fabricioportoviolinista" 
+                       class="contact-btn telegram-btn" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       aria-label="Contato via Telegram">
+                        <i class="fab fa-telegram-plane" aria-hidden="true"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="mailto:fabricioportoviolinista@gmail.com?subject=Contato%20-%20Serviços%20Musicais&body=Olá%20Fabricio,%0D%0A%0D%0AGostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20musicais.%0D%0A%0D%0AObrigado!" 
+                       class="contact-btn email-btn" 
+                       aria-label="Contato via E-mail - fabricioportoviolinista@gmail.com">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>E-mail</span>
+                    </a>
+                </address>
+            </article>
+        </div>
+    </section>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 Fabricio Porto - Violinista. Todos os direitos reservados.</p>
+        <p>Criando momentos únicos através da música clássica.</p>
+    </footer>
+
+    <footer class="developer-footer" role="contentinfo">
+        Site desenvolvido por
+        <a href="https://www.linkedin.com/in/renan-de-oliveira-farias-66a9b412b/" target="_blank" rel="noopener noreferrer">
+            Nan Dev
         </a>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Screen reader only content -->
+    <div class="sr-only">
+        <h2>Informações de Contato</h2>
+        <p>Telefone: (19) 99901-1288</p>
+        <p>Email: fabricioportoviolinista@gmail.com</p>
+        <p>Localização: São Paulo, Brasil</p>
+        <p>Serviços: Violinista para casamentos, debutantes, eventos corporativos e aulas particulares</p>
+    </div>
+
+    <!-- CSS para melhor acessibilidade -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .telegram-btn {
+            background-color: #0088cc !important;
+            color: white !important;
+            border: 2px solid #0088cc !important;
+        }
         
-    </div>
-</footer>
-    <script src="script.js"></script>
+        .telegram-btn:hover {
+            background-color: #006699 !important;
+            border-color: #006699 !important;
+            color: white !important;
+        }
+        
+        .telegram-btn i {
+            color: white !important;
+        }
 
-    <!-- Chatbot HTML Structure -->
-    <div class="chatbot-container">
-        <div class="chatbot-window" id="chatbotWindow">
-            <div class="chatbot-header">
-                <div class="chatbot-status"></div>
-                <span>AI Assistant - Renan's Portfolio</span>
-            </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message bot">
-                    Olá! 👋 Sou o assistente AI do Renan. Posso responder perguntas sobre suas habilidades, experiência, projetos e muito mais. Como posso te ajudar?
-                </div>
-            </div>
-            <div class="chatbot-input-container">
-                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua pergunta...">
-            </div>
-        </div>
-        <button class="chatbot-trigger pulse" id="chatbotTrigger">
-            <i class="fas fa-robot"></i>
-        </button>
-    </div>
+        /* Melhorias de foco para acessibilidade */
+        *:focus {
+            outline: 2px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        .nav-links a:focus,
+        .btn:focus,
+        .contact-btn:focus {
+            outline: 3px solid #d4af37;
+            outline-offset: 3px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .section-title,
+            .artist-name,
+            .social-name,
+            .partner-name {
+                color: #ffff00 !important;
+            }
+            
+            .nav-links a:focus,
+            .btn:focus,
+            .contact-btn:focus {
+                outline: 4px solid #ffff00;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+
+    <!-- Scripts base (carregados sempre) -->
+    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
+   
+    <!-- Additional SEO and Analytics Scripts -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fabricio Porto - Violinista",
+    "alternateName": "Fabricio Porto Violinista",
+    "description": "Violinista  profissional especializado em casamentos, debutantes, jantares de gala e eventos corporativos em São Paulo",
+    "url": "https://nansinyx26.github.io/Fabricio-Porto-Violinista/",
+    "telephone": "+55-19-99901-1288",
+    "email": "fabricioportoviolinista@gmail.com",
+    "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.550520,
+        "longitude": -46.633308
+    },
+    "sameAs": [
+        "https://instagram.com/fabricioportoviolinista",
+        "https://youtube.com/@fabricioportoviolinista"
+    ],
+    "openingHours": "Mo-Su 08:00-20:00",
+    "priceRange": " a partir de R$1200",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "areaServed": [
+        "São Paulo",
+        "Piracicaba", 
+        "Campinas",
+        "Sorocaba",
+        "Santos",
+        "São José dos Campos",
+        "Santa Bárbara D'Oeste"
+    ],
+    "offers": {
+        "@type": "Offer",
+        "price": "1200",
+        "priceCurrency": "BRL"
+    }
+}
+</script>
 </body>
-
 </html>
