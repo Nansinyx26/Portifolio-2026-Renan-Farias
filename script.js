@@ -1191,3 +1191,48 @@ if (document.readyState === 'loading') {
         nandevWatermark.recreateParticles();
     }, 1000);
 }
+
+// Contact Form Handler
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Coletar dados do formulário
+        const formData = {
+            fullName: document.getElementById('fullName').value,
+            company: document.getElementById('company').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            product: document.getElementById('product').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Aqui você pode enviar para um backend ou email
+        // Por enquanto, vou mostrar um alerta de sucesso
+        
+        // Simular envio
+        const submitBtn = contactForm.querySelector('.btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
+            submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00cc6a)';
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Restaurar botão após 3 segundos
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+            }, 3000);
+        }, 1500);
+        
+        console.log('Dados do formulário:', formData);
+    });
+}
