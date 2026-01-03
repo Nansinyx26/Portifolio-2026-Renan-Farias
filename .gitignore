@@ -1,0 +1,18 @@
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+node_modules/
+dist/
+build/
+.env
+js/temp_voice_menu.js
+C:\Users\Nan\.gemini\antigravity\brain\a5bbca48-bd2e-46e7-a9d1-ed85ffb8511a/

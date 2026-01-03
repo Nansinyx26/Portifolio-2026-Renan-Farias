@@ -1,0 +1,40 @@
+# Robots.txt para Portfolio de Renan de Oliveira
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Disallow: *.css$
+Disallow: *.js$
+Disallow: /imagens/*.png$
+Disallow: /imagens/*.jpg$
+Disallow: /imagens/*.jpeg$
+Disallow: /imagens/*.gif$
+
+Allow: /manifest.json
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+Sitemap: https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/sitemap.xml
+
+Crawl-delay: 1
