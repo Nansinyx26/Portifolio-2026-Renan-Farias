@@ -159,9 +159,11 @@ class AdvancedPortfolio {
         ];
 
         const meshes = [];
+        const isMobile = window.innerWidth < 768;
+        const objectCount = isMobile ? 4 : 12;
 
         // Create multiple floating objects
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < objectCount; i++) {
             const geometry = geometries[Math.floor(Math.random() * geometries.length)];
             const material = materials[Math.floor(Math.random() * materials.length)];
             const mesh = new THREE.Mesh(geometry, material);
@@ -479,9 +481,12 @@ class AdvancedPortfolio {
 
     // Loading Screen
     setupLoadingScreen() {
-        window.addEventListener('load', () => {
-            const loader = document.querySelector('.loader');
-            if (!loader) return;
+        const loader = document.querySelector('.loader');
+        if (!loader) return;
+
+        const hideLoader = () => {
+            if (loader.classList.contains('hidden')) return;
+            loader.classList.add('hidden');
 
             if (typeof gsap !== 'undefined') {
                 gsap.to(loader, {
@@ -493,14 +498,18 @@ class AdvancedPortfolio {
                     }
                 });
             } else {
+                loader.style.opacity = '0';
                 setTimeout(() => {
-                    loader.style.opacity = '0';
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                    }, 500);
-                }, 1000);
+                    loader.style.display = 'none';
+                }, 500);
             }
-        });
+        };
+
+        // Escuchar evento load
+        window.addEventListener('load', hideLoader);
+
+        // Safety Timeout - máximo 4 segundos de espera
+        setTimeout(hideLoader, 4000);
     }
 }
 

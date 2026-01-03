@@ -1551,6 +1551,21 @@ body {
     }
 }
 
+@media (max-width: 480px) {
+    .chatbot-window {
+        width: 280px;
+        height: 400px;
+        bottom: 70px;
+        right: -10px;
+    }
+
+    .voice-dropdown-menu {
+        min-width: 180px;
+        right: 5px;
+        top: 55px;
+    }
+}
+
 
 /* Theme support */
 
