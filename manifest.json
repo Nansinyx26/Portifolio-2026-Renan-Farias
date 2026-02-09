@@ -1,0 +1,48 @@
+{
+  "name": "Renan de Oliveira Farias - Portfolio",
+  "short_name": "Renan Farias Portfolio",
+  "lang": "pt-BR",
+  "description": "Portfolio de Renan de Oliveira Farias - Desenvolvedor Junior JavaScript, Arduino, Impressão 3D e tecnologias maker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#00ff88",
+  "background_color": "#000000",
+  "categories": ["utilities", "portfolio", "developer"],
+  "icons": [
+    {
+      "src": "./imagens/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./imagens/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./imagens/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./imagens/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./imagens/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+

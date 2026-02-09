@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Permitir o rastreamento de todos os recursos para melhor renderização
+Allow: /css/
+Allow: /js/
+Allow: /imagens/
+Allow: /Gif/
+Allow: /manifest.json
+
+Sitemap: https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/sitemap.xml

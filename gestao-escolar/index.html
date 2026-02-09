@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Escolar - Detalhes do Projeto</title>
+    <!-- CSS Reuse -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .project-details {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 120px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            color: var(--text-light);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .project-details h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-details h2 {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+            color: var(--primary);
+        }
+
+        .project-details h3 {
+            color: var(--secondary);
+            margin-top: 2rem;
+        }
+
+        .project-details ul,
+        .project-details ol {
+            list-style-position: inside;
+            margin-bottom: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .project-details li {
+            margin-bottom: 0.8rem;
+        }
+
+        .project-details code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .project-details pre {
+            background: #0a0a0a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .back-btn:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <!-- Header -->
+    <header class="header" id="header" style="background: transparent; border: none; pointer-events: none;">
+        <nav class="nav" style="justify-content: center;">
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar ao Portfolio</a>
+        </nav>
+    </header>
+
+    <main class="container project-details">
+        <!-- Back button is now fixed in header -->
+
+        <h1><i class="bi bi-mortarboard-fill"></i> Sistema de Gerenciamento Escolar v3.0</h1>
+
+        <p>Sistema moderno de gerenciamento escolar que funciona <strong>100% online</strong> usando MongoDB Atlas, com
+            arquitetura robusta e escalável na nuvem.</p>
+
+        <h2><i class="bi bi-stars"></i> Características Principais</h2>
+
+        <h3><i class="bi bi-shield-lock-fill"></i> Sistema de Autenticação</h3>
+        <ul>
+            <li><strong>Login com Email e Senha</strong></li>
+            <li><strong>Login com Google OAuth</strong> (Integrado e seguro)</li>
+            <li>Emails únicos no sistema</li>
+            <li>Sessões persistentes</li>
+            <li>Logout seguro</li>
+        </ul>
+
+        <h3><i class="bi bi-people-fill"></i> Perfis de Usuário</h3>
+        <ul>
+            <li><strong>Professor</strong>: Gerencia suas turmas e atividades</li>
+            <li><strong>Diretor</strong>: Acesso administrativo completo</li>
+        </ul>
+
+        <h3><i class="bi bi-palette-fill"></i> Interface Moderna</h3>
+        <ul>
+            <li>Design inspirado em redes sociais profissionais</li>
+            <li><strong>Modo Escuro</strong> como padrão</li>
+            <li>Glassmorphism e gradientes vibrantes</li>
+            <li>Animações suaves e micro-interações</li>
+            <li>Totalmente responsivo (desktop, tablet, mobile)</li>
+        </ul>
+
+        <h3><i class="bi bi-hdd-network-fill"></i> Banco de Dados</h3>
+        <ul>
+            <li><strong>MongoDB Atlas</strong> para armazenamento em nuvem</li>
+            <li>Estrutura de dados robusta e escalável</li>
+            <li>Collections: usuarios, professores, diretores, controle_salas, controle_turmas, configuracoes_escola
+            </li>
+        </ul>
+
+        <h2><i class="bi bi-folder-fill"></i> Estrutura do Projeto</h2>
+        <pre><code>
+sistema-cadastro-escolar-v2/
+├── login.html                 # Página de login/registro
+├── escolher-perfil.html      # Escolha de perfil (Professor/Diretor)
+├── cadastro-professor.html   # Cadastro do perfil de professor
+├── cadastro-diretor.html     # Cadastro do perfil de diretor
+├── dashboard.html            # Dashboard principal
+├── css/
+│   ├── variables.css         # Variáveis e design tokens
+│   ├── base.css             # Reset e estilos base
+│   ├── components-new.css   # Componentes reutilizáveis
+│   ├── login-new.css        # Estilos da tela de login
+│   └── perfil.css           # Estilos da escolha de perfil
+└── js/
+    ├── database.js          # Gerenciador IndexedDB
+    ├── auth.js              # Gerenciador de autenticação
+    ├── utils.js             # Funções utilitárias
+    ├── login.js             # Lógica da tela de login
+    └── perfil.js            # Lógica da escolha de perfil
+        </code></pre>
+
+        <h2><i class="bi bi-rocket-fill"></i> Como Usar</h2>
+
+        <h3>1. Abrir o Sistema</h3>
+        <p>Abra o arquivo <code>login.html</code> no navegador.</p>
+
+        <h3>2. Criar uma Conta</h3>
+        <p><strong>Opção 1: Email e Senha</strong></p>
+        <ol>
+            <li>Clique na tab "Criar Conta"</li>
+            <li>Preencha: Nome, Email, Senha</li>
+            <li>Clique em "Criar Conta"</li>
+        </ol>
+
+        <p><strong>Opção 2: Google</strong></p>
+        <ol>
+            <li>Clique em "Cadastrar com Google"</li>
+            <li>No modal, informe: Email do Gmail, Nome completo, URL da foto (opcional)</li>
+            <li>Clique em "Confirmar"</li>
+        </ol>
+
+        <h3>3. Escolher Perfil</h3>
+        <p>Após o login, escolha:</p>
+        <ul>
+            <li><strong>Professor</strong>: Para gerenciar turmas</li>
+            <li><strong>Diretor</strong>: Para administrar a escola</li>
+        </ul>
+
+        <h2><i class="bi bi-clipboard-data-fill"></i> Especificações Técnicas</h2>
+
+        <h3>Perfil do Professor</h3>
+        <p><strong>Campos Obrigatórios:</strong> Nome, Sala Principal (1ºA até 5ºD), Matérias (array)</p>
+        <p><strong>Regra Especial:</strong> Se selecionar "Inglês" ou "Educação Física", o campo "Salas Adicionais" é
+            liberado</p>
+
+        <pre><code>{
+  "_id": "ObjectId",
+  "idUsuario": "ObjectId",
+  "tipo": "professor",
+  "nome": "Maria Silva",
+  "salaPrincipal": "3ºB",
+  "materias": ["Português", "Matemática"]
+}</code></pre>
+
+        <h3>Infraestrutura Cloud</h3>
+        <p>O sistema utiliza:</p>
+        <ol>
+            <li><strong>MongoDB Atlas</strong>: Banco de dados NoSQL gerenciado na nuvem.</li>
+            <li><strong>Node.js & Express</strong>: Backend robusto para gestão de requisições.</li>
+            <li><strong>Integração Contínua</strong>: Deploy automatizado.</li>
+        </ol>
+
+        <h2><i class="bi bi-palette-fill"></i> Design System</h2>
+        <ul>
+            <li><strong>Cores</strong>: Azul (#4c9aff), Roxo (#7c3aed), Laranja (#f59e0b)</li>
+            <li><strong>Fontes</strong>: Inter, Fira Code</li>
+            <li><strong>Componentes</strong>: Botões, Cards (glassmorphism), Inputs, Modais, Toasts</li>
+        </ul>
+
+        <h2><i class="bi bi-tools"></i> Tecnologias</h2>
+        <ul>
+            <li>HTML5, CSS3, JavaScript (Vanilla & Node.js)</li>
+            <li>MongoDB/Mongoose (Atlas)</li>
+            <li>Express (API REST)</li>
+        </ul>
+
+        <br><br>
+    </main>
+</body>
+
+</html>
