@@ -1056,190 +1056,175 @@ class Chatbot {
     }
 
     generateResponses() {
-        return [{
-            keywords: ['experiência', 'trabalho', 'emprego', 'profissional', 'carreira'],
-            responses: [
-                {
-                    pt: "Renan de Oliveira Farias tem experiência sólida como Técnico de Laboratório Jr. na Maker Mania LTDA (2025) e anteriormente na Amadotec (2023-2024). Trabalhou também na Secretaria da Educação com desenvolvimento em C# e suporte técnico.",
-                    en: "Renan de Oliveira Farias has solid experience as a Jr. Laboratory Technician at Maker Mania LTDA (2025) and previously at Amadotec (2023-2024). He also worked at the Department of Education with C# development and technical support."
-                },
-                {
-                    pt: "A experiência de Renan de Oliveira Farias inclui desenvolvimento de protótipos, impressão 3D, workshops maker e integração de IAs educacionais. Ele combina habilidades técnicas (dev) com hands-on (maker).",
-                    en: "Renan de Oliveira Farias's experience includes prototype development, 3D printing, maker workshops, and integration of educational AIs. He combines technical skills (dev) with hands-on (maker) expertise."
-                }
-            ]
-        },
-        {
-            keywords: ['gestão escolar', 'sistema escolar', 'escola', 'mongodb', 'online', 'auth'],
-            responses: [
-                {
-                    pt: "O projeto <strong>Gestão Escolar v3.0</strong> é um sistema 100% online desenvolvido com MongoDB Atlas e Autenticação Google. Possui perfis para Professores e Diretores, interface moderna com Glassmorphism e é totalmente responsivo.",
-                    en: "The <strong>School Management v3.0</strong> project is a 100% online system developed with MongoDB Atlas and Google Authentication. It features profiles for Teachers and Directors, a modern interface with Glassmorphism, and is fully responsive."
-                },
-                {
-                    pt: "O <strong>Sistema de Gestão Escolar</strong> é o destaque do portfólio! Ele usa MongoDB Atlas na nuvem, logins seguros (Email/Google), e gerencia turmas e notas com uma interface super moderna (Dark Mode/Glassmorphism).",
-                    en: "The <strong>School Management System</strong> is the portfolio highlight! It uses cloud-based MongoDB Atlas, secure logins (Email/Google), and manages classes and grades with a super modern interface (Dark Mode/Glassmorphism)."
-                }
-            ]
-        },
-        {
-            keywords: ['maker coins', 'coins', 'gamificação', 'gamificado', '3º ano', '5º ano', 'ranking'],
-            responses: [
-                {
-                    pt: "O <strong>Maker Coins</strong> é um sistema de gamificação escolar! Ele usa LocalStorage para salvar pontos ('coins') dos alunos, gera rankings (leaderboards) e permite exportar dados. Tem modos específicos para 3º e 5º anos.",
-                    en: "<strong>Maker Coins</strong> is a school gamification system! It uses LocalStorage to save student points ('coins'), generates leaderboards, and allows data export. It has specific modes for 3rd and 5th grades."
-                },
-                {
-                    pt: "Com o <strong>Maker Coins System</strong>, professores podem dar ou tirar pontos dos alunos, gerando competitividade saudável. Inclui proteção por senha e justificativas para penalidades.",
-                    en: "With the <strong>Maker Coins System</strong>, teachers can give or take points from students, generating healthy competitiveness. It includes password protection and justifications for penalties."
-                }
-            ]
-        },
-        {
-            keywords: ['sistema solar', 'vr', 'ar', 'realidade virtual', 'a-frame', 'planetas', 'quiz'],
-            responses: [
-                {
-                    pt: "O <strong>Sistema Solar VR 3.0</strong> é uma experiência imersiva em Realidade Virtual e Aumentada! Feito com A-Frame e Three.js, permite explorar planetas em 3D e responde a quizzes educativos.",
-                    en: "<strong>Solar System VR 3.0</strong> is an immersive VR and AR experience! Built with A-Frame and Three.js, it allows exploring 3D planets and answering educational quizzes."
-                },
-                {
-                    pt: "Você pode explorar o espaço com o <strong>Sistema Solar VR</strong>! Ele funciona no navegador e suporta óculos VR. Também tem um modo AR (Realidade Aumentada) usando a câmera do celular com marcadores visuais.",
-                    en: "You can explore space with <strong>Solar System VR</strong>! It works in the browser and supports VR headsets. It also has an AR mode using the mobile camera with visual markers."
-                }
-            ]
-        },
-        {
-            keywords: ['experiência', 'trabalho', 'emprego', 'profissional', 'carreira'],
-            responses: [
-                {
-                    pt: "Renan tem experiência sólida como Técnico de Laboratório Jr. na Maker Mania LTDA (2025) e anteriormente na Amadotec (2023-2024). Trabalhou também na Secretaria da Educação com desenvolvimento em C# e suporte técnico.",
-                    en: "Renan has solid experience as a Jr. Laboratory Technician at Maker Mania LTDA (2025) and previously at Amadotec (2023-2024). He also worked at the Department of Education with C# development and technical support."
-                },
-                {
-                    pt: "A experiência do Renan inclui desenvolvimento de protótipos, impressão 3D, workshops maker e integração de IAs educacionais. Ele combina habilidades técnicas (dev) com hands-on (maker).",
-                    en: "Renan's experience includes prototype development, 3D printing, maker workshops, and integration of educational AIs. He combines technical skills (dev) with hands-on (maker) expertise."
-                }
-            ]
-        },
-        {
-            keywords: ['gestão escolar', 'sistema escolar', 'escola', 'mongodb', 'online', 'auth'],
-            responses: [
-                {
-                    pt: "O projeto <strong>Gestão Escolar v3.0</strong> é um sistema 100% online desenvolvido com MongoDB Atlas e Autenticação Google. Possui perfis para Professores e Diretores, interface moderna com Glassmorphism e é totalmente responsivo.",
-                    en: "The <strong>School Management v3.0</strong> project is a 100% online system developed with MongoDB Atlas and Google Authentication. It features profiles for Teachers and Directors, a modern interface with Glassmorphism, and is fully responsive."
-                },
-                {
-                    pt: "O <strong>Sistema de Gestão Escolar</strong> é o destaque do portfólio! Ele usa MongoDB Atlas na nuvem, logins seguros (Email/Google), e gerencia turmas e notas com uma interface super moderna (Dark Mode/Glassmorphism).",
-                    en: "The <strong>School Management System</strong> is the portfolio highlight! It uses cloud-based MongoDB Atlas, secure logins (Email/Google), and manages classes and grades with a super modern interface (Dark Mode/Glassmorphism)."
-                }
-            ]
-        },
-        {
-            keywords: ['maker coins', 'coins', 'gamificação', 'gamificado', '3º ano', '5º ano', 'ranking'],
-            responses: [
-                {
-                    pt: "O <strong>Maker Coins</strong> é um sistema de gamificação escolar! Ele usa LocalStorage para salvar pontos ('coins') dos alunos, gera rankings (leaderboards) e permite exportar dados. Tem modos específicos para 3º e 5º anos.",
-                    en: "<strong>Maker Coins</strong> is a school gamification system! It uses LocalStorage to save student points ('coins'), generates leaderboards, and allows data export. It has specific modes for 3rd and 5th grades."
-                },
-                {
-                    pt: "Com o <strong>Maker Coins System</strong>, professores podem dar ou tirar pontos dos alunos, gerando competitividade saudável. Inclui proteção por senha e justificativas para penalidades.",
-                    en: "With the <strong>Maker Coins System</strong>, teachers can give or take points from students, generating healthy competitiveness. It includes password protection and justifications for penalties."
-                }
-            ]
-        },
-        {
-            keywords: ['sistema solar', 'vr', 'ar', 'realidade virtual', 'a-frame', 'planetas', 'quiz'],
-            responses: [
-                {
-                    pt: "O <strong>Sistema Solar VR 3.0</strong> é uma experiência imersiva em Realidade Virtual e Aumentada! Feito com A-Frame e Three.js, permite explorar planetas em 3D e responde a quizzes educativos.",
-                    en: "<strong>Solar System VR 3.0</strong> is an immersive VR and AR experience! Built with A-Frame and Three.js, it allows exploring 3D planets and answering educational quizzes."
-                },
-                {
-                    pt: "Você pode explorar o espaço com o <strong>Sistema Solar VR</strong>! Ele funciona no navegador e suporta óculos VR. Também tem um modo AR (Realidade Aumentada) usando a câmera do celular com marcadores visuais.",
-                    en: "You can explore space with <strong>Solar System VR</strong>! It works in the browser and supports VR headsets. It also has an AR mode using the mobile camera with visual markers."
-                }
-            ]
-        },
-        {
-            keywords: ['habilidades', 'skills', 'tecnologias', 'competências', 'programação', 'dev'],
-            responses: [
-                {
-                    pt: "Skills principais: <strong>JavaScript, C#, Python, Arduino</strong>. Renan de Oliveira Farias também domina integração com ChatGPT/Claude, Prompt Engineering, e tecnologias maker como Impressão 3D e Corte a Laser.",
-                    en: "Main skills: <strong>JavaScript, C#, Python, Arduino</strong>. Renan de Oliveira Farias also masters integration with ChatGPT/Claude, Prompt Engineering, and maker technologies like 3D Printing and Laser Cutting."
-                },
-                {
-                    pt: "Renan de Oliveira Farias é um desenvolvedor versátil que domina desde tecnologias Web (React, Three.js, GSAP) até hardware (Arduino, Microcontroladores). Especialista em unir o digital ao físico.",
-                    en: "Renan de Oliveira Farias is a versatile developer who masters everything from Web technologies (React, Three.js, GSAP) to hardware (Arduino, Microcontrollers). Specialist in bridging the digital and physical worlds."
-                }
-            ]
-        },
-        {
-            keywords: ['contato', 'email', 'telefone', 'whatsapp', 'linkedin', 'github', 'redes', 'falar'],
-            responses: [
-                {
-                    pt: "Você pode falar com Renan de Oliveira Farias pelo e-mail <strong>oliversinyxcontato@gmail.com</strong> ou pelo telefone/WhatsApp <strong>(19) 98427-5085</strong>. <br>🔗 <a href='https://bit.ly/46QNGZv' target='_blank'>LinkedIn</a> | <a href='https://github.com/Nansinyx26' target='_blank'>GitHub</a>",
-                    en: "You can reach Renan de Oliveira Farias via email at <strong>oliversinyxcontato@gmail.com</strong> or via phone/WhatsApp at <strong>(19) 98427-5085</strong>. <br>🔗 <a href='https://bit.ly/46QNGZv' target='_blank'>LinkedIn</a> | <a href='https://github.com/Nansinyx26' target='_blank'>GitHub</a>"
-                }
-            ]
-        },
-        {
-            keywords: ['educação', 'formação', 'faculdade', 'fatec', 'formado', 'graduação', 'estudou'],
-            responses: [
-                {
-                    pt: "Renan de Oliveira Farias é graduado em <strong>Tecnologia em Jogos Digitais</strong> pela <strong>Fatec Americana</strong>. Essa formação deu a ele uma base fortíssima em lógica de programação, UX e desenvolvimento interativo.",
-                    en: "Renan de Oliveira Farias graduated in <strong>Digital Games Technology</strong> from <strong>Fatec Americana</strong>. This degree gave him a strong foundation in programming logic, UX, and interactive development."
-                }
-            ]
-        },
-        {
-            keywords: ['localização', 'onde mora', 'cidade', 'americana', 'região', 'mora'],
-            responses: [
-                {
-                    pt: "Renan de Oliveira Farias reside em <strong>Americana, São Paulo</strong>. Ele atua profissionalmente na região e também trabalha em projetos remotos.",
-                    en: "Renan de Oliveira Farias lives in <strong>Americana, São Paulo, Brazil</strong>. He works professionally in the region and also on remote projects."
-                }
-            ]
-        },
-        {
-            keywords: ['ia', 'artificial', 'intelligence', 'chatgpt', 'claude', 'prompt', 'engineering'],
-            responses: [
-                {
-                    pt: "O diferencial de Renan de Oliveira Farias é a <strong>integração de IA</strong> (ChatGPT, Claude) em processos reais. Ele é especialista em Prompt Engineering para otimizar o desenvolvimento e criar soluções inteligentes.",
-                    en: "Renan de Oliveira Farias's edge is <strong>AI integration</strong> (ChatGPT, Claude) into real processes. He's an expert in Prompt Engineering to optimize development and create smart solutions."
-                }
-            ]
-        },
-        {
-            keywords: ['futebol de botão', 'futebol', 'campeonato', 'times'],
-            responses: [
-                {
-                    pt: "O <strong>Sistema Futebol de Botão</strong> é uma plataforma completa para gerenciar campeonatos, com controle de times, jogadores e estatísticas em tempo real.",
-                    en: "The <strong>Button Soccer System</strong> is a complete platform for managing championships, with team, player, and real-time statistics control."
-                }
-            ]
-        },
-        {
-            keywords: ['violinista', 'fabricio porto', 'música', 'site'],
-            responses: [
-                {
-                    pt: "Renan de Oliveira Farias desenvolveu o site do violinista <strong>Fabricio Porto</strong>, um portfólio elegante e responsivo focado na carreira do músico. <a href='https://nansinyx26.github.io/Fabricio-Porto-Violinista/' target='_blank'>Ver Site</a>",
-                    en: "Renan de Oliveira Farias developed the website for violinist <strong>Fabricio Porto</strong>, an elegant and responsive portfolio focused on the musician's career. <a href='https://nansinyx26.github.io/Fabricio-Porto-Violinista/' target='_blank'>View Site</a>"
-                }
-            ]
-        },
-        {
-            keywords: ['oi', 'olá', 'bom dia', 'boa tarde', 'boa noite', 'ajuda', 'hey'],
-            responses: [
-                {
-                    pt: "Olá! 👋 Sou a IA de Renan de Oliveira Farias. Posso te dar detalhes sobre seus <strong>projetos</strong>, <strong>habilidades técnicas</strong>, <strong>formação</strong> ou como entrar em <strong>contato</strong>. O que você quer saber?",
-                    en: "Hello! 👋 I am Renan de Oliveira Farias's AI. I can give you details about his <strong>projects</strong>, <strong>technical skills</strong>, <strong>education</strong>, or how to get in <strong>contact</strong>. What would you like to know?"
-                },
-                {
-                    pt: "Oi! Tudo bem? Estou aqui para apresentar o trabalho de Renan de Oliveira Farias. Quer saber sobre o projeto de Gestão Escolar ou o Sistema Solar VR?",
-                    en: "Hi! How are you? I'm here to showcase Renan de Oliveira Farias's work. Want to know about the School Management project or the Solar System VR?"
-                }
-            ]
-        }
+        return [
+            {
+                keywords: ['experiência', 'trabalho', 'emprego', 'profissional', 'carreira'],
+                responses: [
+                    {
+                        pt: "Renan de Oliveira Farias tem experiência sólida como Técnico de Laboratório Jr. na Maker Mania LTDA (2025) e anteriormente na Amadotec (2023-2024). Trabalhou também na Secretaria da Educação com desenvolvimento em C# e suporte técnico.",
+                        en: "Renan de Oliveira Farias has solid experience as a Jr. Laboratory Technician at Maker Mania LTDA (2025) and previously at Amadotec (2023-2024). He also worked at the Department of Education with C# development and technical support."
+                    },
+                    {
+                        pt: "A experiência de Renan de Oliveira Farias inclui desenvolvimento de protótipos, impressão 3D, workshops maker e integração de IAs educacionais. Ele combina habilidades técnicas (dev) com hands-on (maker).",
+                        en: "Renan de Oliveira Farias's experience includes prototype development, 3D printing, maker workshops, and integration of educational AIs. He combines technical skills (dev) with hands-on (maker) expertise."
+                    }
+                ]
+            },
+            {
+                keywords: ['gestão escolar', 'sistema escolar', 'escola', 'mongodb', 'online', 'auth'],
+                responses: [
+                    {
+                        pt: "O projeto <strong>Gestão Escolar v3.0</strong> é um sistema 100% online desenvolvido com MongoDB Atlas e Autenticação Google. Possui perfis para Professores e Diretores, interface moderna com Glassmorphism e é totalmente responsivo.",
+                        en: "The <strong>School Management v3.0</strong> project is a 100% online system developed with MongoDB Atlas and Google Authentication. It features profiles for Teachers and Directors, a modern interface with Glassmorphism, and is fully responsive."
+                    },
+                    {
+                        pt: "O <strong>Sistema de Gestão Escolar</strong> é o destaque do portfólio! Ele usa MongoDB Atlas na nuvem, logins seguros (Email/Google), e gerencia turmas e notas com uma interface super moderna (Dark Mode/Glassmorphism).",
+                        en: "The <strong>School Management System</strong> is the portfolio highlight! It uses cloud-based MongoDB Atlas, secure logins (Email/Google), and manages classes and grades with a super modern interface (Dark Mode/Glassmorphism)."
+                    }
+                ]
+            },
+            {
+                keywords: ['maker coins', 'coins', 'gamificação', 'gamificado', '3º ano', '5º ano', 'ranking'],
+                responses: [
+                    {
+                        pt: "O <strong>Maker Coins</strong> é um sistema de gamificação escolar! Ele usa LocalStorage para salvar pontos ('coins') dos alunos, gera rankings (leaderboards) e permite exportar dados. Tem modos específicos para 3º e 5º anos.",
+                        en: "<strong>Maker Coins</strong> is a school gamification system! It uses LocalStorage to save student points ('coins'), generates leaderboards, and allows data export. It has specific modes for 3rd and 5th grades."
+                    },
+                    {
+                        pt: "Com o <strong>Maker Coins System</strong>, professores podem dar ou tirar pontos dos alunos, gerando competitividade saudável. Inclui proteção por senha e justificativas para penalidades.",
+                        en: "With the <strong>Maker Coins System</strong>, teachers can give or take points from students, generating healthy competitiveness. It includes password protection and justifications for penalties."
+                    }
+                ]
+            },
+            {
+                keywords: ['sistema solar', 'vr', 'ar', 'realidade virtual', 'a-frame', 'planetas', 'quiz'],
+                responses: [
+                    {
+                        pt: "O <strong>Sistema Solar VR 3.0</strong> é uma experiência imersiva em Realidade Virtual e Aumentada! Feito com A-Frame e Three.js, permite explorar planetas em 3D e responde a quizzes educativos.",
+                        en: "<strong>Solar System VR 3.0</strong> is an immersive VR and AR experience! Built with A-Frame and Three.js, it allows exploring 3D planets and answering educational quizzes."
+                    },
+                    {
+                        pt: "Você pode explorar o espaço com o <strong>Sistema Solar VR</strong>! Ele funciona no navegador e suporta óculos VR. Também tem um modo AR (Realidade Aumentada) usando a câmera do celular com marcadores visuais.",
+                        en: "You can explore space with <strong>Solar System VR</strong>! It works in the browser and supports VR headsets. It also has an AR mode using the mobile camera with visual markers."
+                    }
+                ]
+            },
+            {
+                keywords: ['habilidades', 'skills', 'tecnologias', 'competências', 'programação', 'dev'],
+                responses: [
+                    {
+                        pt: "Skills principais: <strong>JavaScript, C#, Python, Arduino</strong>. Renan de Oliveira Farias também domina integração com ChatGPT/Claude, Prompt Engineering, e tecnologias maker como Impressão 3D e Corte a Laser.",
+                        en: "Main skills: <strong>JavaScript, C#, Python, Arduino</strong>. Renan de Oliveira Farias also masters integration with ChatGPT/Claude, Prompt Engineering, and maker technologies like 3D Printing and Laser Cutting."
+                    },
+                    {
+                        pt: "Renan de Oliveira Farias é um desenvolvedor versátil que domina desde tecnologias Web (React, Three.js, GSAP) até hardware (Arduino, Microcontroladores). Especialista em unir o digital ao físico.",
+                        en: "Renan de Oliveira Farias is a versatile developer who masters everything from Web technologies (React, Three.js, GSAP) to hardware (Arduino, Microcontrollers). Specialist in bridging the digital and physical worlds."
+                    }
+                ]
+            },
+            {
+                keywords: ['contato', 'email', 'telefone', 'whatsapp', 'linkedin', 'github', 'redes', 'falar'],
+                responses: [
+                    {
+                        pt: "Você pode falar com Renan de Oliveira Farias pelo e-mail <strong>oliversinyxcontato@gmail.com</strong> ou pelo telefone/WhatsApp <strong>(19) 98427-5085</strong>. <br>🔗 <a href='https://bit.ly/46QNGZv' target='_blank'>LinkedIn</a> | <a href='https://github.com/Nansinyx26' target='_blank'>GitHub</a>",
+                        en: "You can reach Renan de Oliveira Farias via email at <strong>oliversinyxcontato@gmail.com</strong> or via phone/WhatsApp at <strong>(19) 98427-5085</strong>. <br>🔗 <a href='https://bit.ly/46QNGZv' target='_blank'>LinkedIn</a> | <a href='https://github.com/Nansinyx26' target='_blank'>GitHub</a>"
+                    }
+                ]
+            },
+            {
+                keywords: ['educação', 'formação', 'faculdade', 'fatec', 'formado', 'graduação', 'estudou'],
+                responses: [
+                    {
+                        pt: "Renan de Oliveira Farias é graduado em <strong>Tecnologia em Jogos Digitais</strong> pela <strong>Fatec Americana</strong>. Essa formação deu a ele uma base fortíssima em lógica de programação, UX e desenvolvimento interativo.",
+                        en: "Renan de Oliveira Farias graduated in <strong>Digital Games Technology</strong> from <strong>Fatec Americana</strong>. This degree gave him a strong foundation in programming logic, UX, and interactive development."
+                    }
+                ]
+            },
+            {
+                keywords: ['localização', 'onde mora', 'cidade', 'americana', 'região', 'mora'],
+                responses: [
+                    {
+                        pt: "Renan de Oliveira Farias reside em <strong>Americana, São Paulo</strong>. Ele atua profissionalmente na região e também trabalha em projetos remotos.",
+                        en: "Renan de Oliveira Farias lives in <strong>Americana, São Paulo, Brazil</strong>. He works professionally in the region and also on remote projects."
+                    }
+                ]
+            },
+            {
+                keywords: ['ia', 'artificial', 'intelligence', 'chatgpt', 'claude', 'prompt', 'engineering'],
+                responses: [
+                    {
+                        pt: "O diferencial de Renan de Oliveira Farias é a <strong>integração de IA</strong> (ChatGPT, Claude) em processos reais. Ele é especialista em Prompt Engineering para otimizar o desenvolvimento e criar soluções inteligentes.",
+                        en: "Renan de Oliveira Farias's edge is <strong>AI integration</strong> (ChatGPT, Claude) into real processes. He's an expert in Prompt Engineering to optimize development and create smart solutions."
+                    }
+                ]
+            },
+            {
+                keywords: ['didax', 'didax-ia', 'ia educacional', 'gemini', 'openai'],
+                responses: [
+                    {
+                        pt: "O <strong>Didax-IA</strong> é uma plataforma educacional inovadora que integra Inteligência Artificial (OpenAI/Gemini) para auxiliar professores e alunos. Oferece ferramentas inteligentes para personalização de conteúdo e suporte pedagógico.",
+                        en: "<strong>Didax-IA</strong> is an innovative educational platform that integrates Artificial Intelligence (OpenAI/Gemini) to assist teachers and students. It offers smart tools for content personalization and pedagogical support."
+                    }
+                ]
+            },
+            {
+                keywords: ['avalia', 'avalia-aluno', 'estrelas', 'avaliação', 'feedback'],
+                responses: [
+                    {
+                        pt: "O <strong>Sistema de Avaliação com Estrelas</strong> é um componente de interface moderno para feedback visual imediato no desempenho estudantil, focado em UX intuitiva e animações suaves.",
+                        en: "The <strong>Star Rating System</strong> is a modern UI component for immediate visual feedback on student performance, focused on intuitive UX and smooth animations."
+                    }
+                ]
+            },
+            {
+                keywords: ['senha', 'criptografia', 'segurança', 'python', 'cryptography'],
+                responses: [
+                    {
+                        pt: "O projeto <strong>Cadastro de Senha Criptografada</strong> é um sistema em Python que utiliza algoritmos de criptografia para proteger dados sensíveis, garantindo o armazenamento seguro de informações.",
+                        en: "The <strong>Encrypted Password Registration</strong> project is a Python system that uses encryption algorithms to protect sensitive data, ensuring secure information storage."
+                    }
+                ]
+            },
+            {
+                keywords: ['organize', 'organizepy', 'automação', 'arquivos', 'python'],
+                responses: [
+                    {
+                        pt: "O <strong>OrganizePY2</strong> é uma ferramenta de automação em Python desenvolvida para organizar arquivos automaticamente baseado em extensões e metadados, otimizando fluxos de trabalho.",
+                        en: "<strong>OrganizePY2</strong> is a Python automation tool developed to automatically organize files based on extensions and metadata, optimizing workflows."
+                    }
+                ]
+            },
+            {
+                keywords: ['futebol de botão', 'futebol', 'campeonato', 'times'],
+                responses: [
+                    {
+                        pt: "O <strong>Sistema Futebol de Botão</strong> é uma plataforma completa para gerenciar campeonatos, com controle de times, jogadores e estatísticas em tempo real.",
+                        en: "The <strong>Button Soccer System</strong> is a complete platform for managing championships, with team, player, and real-time statistics control."
+                    }
+                ]
+            },
+            {
+                keywords: ['violinista', 'fabricio porto', 'música', 'site'],
+                responses: [
+                    {
+                        pt: "Renan de Oliveira Farias desenvolveu o site do violinista <strong>Fabricio Porto</strong>, um portfólio elegante e responsivo focado na carreira do músico. <a href='https://nansinyx26.github.io/Fabricio-Porto-Violinista/' target='_blank'>Ver Site</a>",
+                        en: "Renan de Oliveira Farias developed the website for violinist <strong>Fabricio Porto</strong>, an elegant and responsive portfolio focused on the musician's career. <a href='https://nansinyx26.github.io/Fabricio-Porto-Violinista/' target='_blank'>View Site</a>"
+                    }
+                ]
+            },
+            {
+                keywords: ['oi', 'olá', 'bom dia', 'boa tarde', 'boa noite', 'ajuda', 'hey'],
+                responses: [
+                    {
+                        pt: "Olá! 👋 Sou a IA de Renan de Oliveira Farias. Posso te dar detalhes sobre seus <strong>projetos</strong>, <strong>habilidades técnicas</strong>, <strong>formação</strong> ou como entrar em <strong>contato</strong>. O que você quer saber?",
+                        en: "Hello! 👋 I am Renan de Oliveira Farias's AI. I can give you details about his <strong>projects</strong>, <strong>technical skills</strong>, <strong>education</strong>, or how to get in <strong>contact</strong>. What would you like to know?"
+                    },
+                    {
+                        pt: "Oi! Tudo bem? Estou aqui para apresentar o trabalho de Renan de Oliveira Farias. Quer saber sobre o Didax-IA, Gestão Escolar ou o Sistema Solar VR?",
+                        en: "Hi! How are you? I'm here to showcase Renan de Oliveira Farias's work. Want to know about Didax-IA, School Management or Solar System VR?"
+                    }
+                ]
+            }
         ];
     }
 
