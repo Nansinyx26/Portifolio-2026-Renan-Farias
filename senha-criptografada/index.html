@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Senha Criptografada - Detalhes do Projeto</title>
+    <!-- CSS Reuse -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .project-details {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 120px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            color: var(--text-light);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .project-details h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-details h2 {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+            color: var(--primary);
+        }
+
+        .project-details h3 {
+            color: var(--secondary);
+            margin-top: 2rem;
+        }
+
+        .project-details ul,
+        .project-details ol {
+            list-style-position: inside;
+            margin-bottom: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .project-details li {
+            margin-bottom: 0.8rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-media {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <header class="header" id="header" style="background: transparent; border: none; pointer-events: none;">
+        <nav class="nav" style="justify-content: center;">
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar ao Portfolio</a>
+        </nav>
+    </header>
+
+    <main class="container project-details">
+        <h1><i class="bi bi-shield-lock-fill"></i> Cadastro de Senha Criptografada</h1>
+
+        <div class="project-media">
+            <img src="../Gif/senha-criptografada.gif" alt="Criptografia Preview">
+        </div>
+
+        <p>Um sistema de segurança robusto desenvolvido em Python para o cadastro e armazenamento seguro de senhas,
+            utilizando algoritmos de criptografia para proteger os dados sensíveis.</p>
+
+        <h2><i class="bi bi-lock-fill"></i> Recursos de Segurança</h2>
+        <ul>
+            <li><strong>Criptografia Forte</strong>: Algoritmos modernos de hashing e criptografia simétrica.</li>
+            <li><strong>Interface Segura</strong>: Preenchimento de campos com proteção visual.</li>
+            <li><strong>Validação de Dados</strong>: Regras para criação de senhas fortes.</li>
+            <li><strong>Backend em Python</strong>: Lógica de processamento e armazenamento segura.</li>
+        </ul>
+
+        <h2><i class="bi bi-tools"></i> Tecnologias</h2>
+        <ul>
+            <li>Python 3.x</li>
+            <li>Bibliotecas de Criptografia (Cryptography/Tkinter for UI)</li>
+            <li>Estruturas de Dados Seguras</li>
+            <li>Design de Segurança de Software</li>
+        </ul>
+
+        <br><br>
+    </main>
+</body>
+
+</html>
