@@ -817,7 +817,27 @@ class Chatbot {
             });
 
             if (!response.ok) {
-                throw new Error(`API Error: ${response.status}`);
+                // O proxy devolve o motivo em JSON. Descartar o corpo aqui
+                // transformava qualquer falha num "502" sem causa aparente.
+                let detail = '';
+                try {
+                    const payload = await response.json();
+                    if (payload.upstreamStatus) {
+                        const causa = {
+                            401: 'chave do ElevenLabs inválida ou revogada',
+                            403: 'chave sem permissão de text-to-speech',
+                            404: 'voice ID inexistente nesta conta',
+                            422: 'parâmetros recusados (modelo indisponível no seu plano?)',
+                            429: 'cota do ElevenLabs esgotada'
+                        }[payload.upstreamStatus] || 'erro no ElevenLabs';
+                        detail = ` — ElevenLabs ${payload.upstreamStatus}: ${causa}`;
+                    }
+                    if (payload.upstreamMessage) detail += ` (${payload.upstreamMessage})`;
+                    if (!detail && payload.error) detail = ` — ${payload.error}`;
+                } catch {
+                    // resposta sem JSON: mantém apenas o status HTTP
+                }
+                throw new Error(`Proxy ${response.status}${detail}`);
             }
 
             // Converter resposta em blob de áudio

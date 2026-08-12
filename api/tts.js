@@ -100,14 +100,27 @@ module.exports = async function handler(request, response) {
         });
 
         if (!upstream.ok) {
-            // O corpo do erro pode conter detalhes da conta: fica só no log.
             const detail = await upstream.text();
             console.error('Erro do ElevenLabs:', upstream.status, detail);
 
-            // 401 costuma ser chave inválida/revogada; 429, cota esgotada.
+            // Repassa só a mensagem curta do erro — o corpo completo pode
+            // conter dados da conta e fica apenas no log do servidor.
+            let upstreamMessage = '';
+            try {
+                const parsed = JSON.parse(detail);
+                upstreamMessage =
+                    parsed?.detail?.message ||
+                    parsed?.detail?.status ||
+                    (typeof parsed?.detail === 'string' ? parsed.detail : '') ||
+                    parsed?.message || '';
+            } catch {
+                // resposta não-JSON do upstream
+            }
+
             return response.status(502).json({
                 error: 'Falha na síntese de voz',
-                upstreamStatus: upstream.status
+                upstreamStatus: upstream.status,
+                upstreamMessage: String(upstreamMessage).slice(0, 200)
             });
         }
 
