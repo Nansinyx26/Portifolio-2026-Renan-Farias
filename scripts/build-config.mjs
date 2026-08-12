@@ -45,6 +45,9 @@ const SECRET_PATTERNS = [
     { name: 'chave da AWS', regex: /^AKIA[0-9A-Z]{16}$/ },
     { name: 'chave secreta do Stripe', regex: /^sk_(live|test)_[A-Za-z0-9]{20,}/ },
     { name: 'string de conexão do MongoDB', regex: /^mongodb(\+srv)?:\/\// },
+    // ElevenLabs moderno: a chave real começa com sk_ (o valor de 64 hex que o
+    // painel exibe é apenas o ID da chave, e a API o rejeita).
+    { name: 'chave da API do ElevenLabs', regex: /^sk_(?!live_|test_)[A-Za-z0-9]{24,}/ },
     // Chave do ElevenLabs: 64 caracteres hexadecimais.
     { name: 'chave da API do ElevenLabs', regex: /^[a-f0-9]{64}$/i }
 ];

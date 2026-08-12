@@ -107,10 +107,16 @@ como variável de ambiente do servidor, lida por `api/tts.js`.
 1. **Vercel > Settings > Environment Variables**, adicione:
 
    ```
-   ELEVENLABS_API_KEY = <sua chave>
+   ELEVENLABS_API_KEY = sk_...
    ```
 
    Marque Production, Preview e Development.
+
+   > ⚠️ **Use a chave, não o ID da chave.** O painel do ElevenLabs lista um
+   > identificador de 64 caracteres hexadecimais que parece uma credencial, mas
+   > a API o recusa com *"API key ID used as API key"*. A chave utilizável
+   > começa com `sk_` e é exibida **uma única vez**, ao criar ou rotacionar.
+   > Se você perdeu esse momento, rotacione a chave para ver o valor novamente.
 
 2. **Refaça o deploy.** Variáveis de ambiente só passam a valer em deploys
    novos — criá-las não atualiza o deploy que já está no ar.
