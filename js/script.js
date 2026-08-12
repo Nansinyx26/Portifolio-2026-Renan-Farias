@@ -7,7 +7,7 @@ class AdvancedPortfolio {
 
     init() {
         this.setupGSAP();
-        this.setupThreeJS();
+        // A cena 3D do hero vive em js/hero-scene.js (módulo ESM, Three.js moderno).
         this.setupTypingEffect();
         this.setupScrollAnimations();
         this.setupCustomCursor();
@@ -43,7 +43,9 @@ class AdvancedPortfolio {
                 scrollTrigger: {
                     trigger: element,
                     start: 'top 85%',
-                    toggleActions: 'play none none reverse'
+                    // Uma vez revelado, permanece: reverter fazia o texto sumir
+                    // ao rolar de volta para cima.
+                    toggleActions: 'play none none none'
                 }
             });
         });
@@ -60,7 +62,9 @@ class AdvancedPortfolio {
                 scrollTrigger: {
                     trigger: card,
                     start: 'top 85%',
-                    toggleActions: 'play none none reverse'
+                    // Uma vez revelado, permanece: reverter fazia o texto sumir
+                    // ao rolar de volta para cima.
+                    toggleActions: 'play none none none'
                 }
             });
         });
@@ -77,7 +81,9 @@ class AdvancedPortfolio {
                 scrollTrigger: {
                     trigger: card,
                     start: 'top 85%',
-                    toggleActions: 'play none none reverse'
+                    // Uma vez revelado, permanece: reverter fazia o texto sumir
+                    // ao rolar de volta para cima.
+                    toggleActions: 'play none none none'
                 }
             });
         });
@@ -93,139 +99,26 @@ class AdvancedPortfolio {
                 scrollTrigger: {
                     trigger: item,
                     start: 'top 85%',
-                    toggleActions: 'play none none reverse'
+                    // Uma vez revelado, permanece: reverter fazia o texto sumir
+                    // ao rolar de volta para cima.
+                    toggleActions: 'play none none none'
                 }
             });
         });
 
-        // Header scroll effect
-        ScrollTrigger.create({
-            trigger: 'body',
-            start: 'top -100',
-            end: 'bottom bottom',
-            onUpdate: (self) => {
-                const header = document.querySelector('.header');
-                if (self.direction === -1) {
-                    header.classList.add('scrolled');
-                } else if (self.scroll < 100) {
-                    header.classList.remove('scrolled');
+        // Header scroll effect — o estado depende da posição, não da direção:
+        // a versão anterior aplicava 'scrolled' ao rolar para CIMA.
+        const header = document.querySelector('.header');
+        if (header) {
+            ScrollTrigger.create({
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                onUpdate: () => {
+                    header.classList.toggle('scrolled', window.scrollY > 80);
                 }
-            }
-        });
-    }
-
-    // Three.js 3D Scene
-    setupThreeJS() {
-        if (typeof THREE === 'undefined') return;
-
-        const canvas = document.querySelector('.hero-canvas');
-        if (!canvas) return;
-
-        // Scene setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        // Create floating geometries
-        const geometries = [
-            new THREE.BoxGeometry(1, 1, 1),
-            new THREE.SphereGeometry(0.7, 16, 16),
-            new THREE.OctahedronGeometry(0.8),
-            new THREE.CylinderGeometry(0.5, 0.5, 1, 6),
-        ];
-
-        const materials = [
-            new THREE.MeshBasicMaterial({
-                color: 0x00ff88,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.6
-            }),
-            new THREE.MeshBasicMaterial({
-                color: 0x0099ff,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.4
-            }),
-            new THREE.MeshBasicMaterial({
-                color: 0xff0088,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.3
-            }),
-        ];
-
-        const meshes = [];
-        const isMobile = window.innerWidth < 768;
-        const objectCount = isMobile ? 4 : 12;
-
-        // Create multiple floating objects
-        for (let i = 0; i < objectCount; i++) {
-            const geometry = geometries[Math.floor(Math.random() * geometries.length)];
-            const material = materials[Math.floor(Math.random() * materials.length)];
-            const mesh = new THREE.Mesh(geometry, material);
-
-            // Random positions
-            mesh.position.set(
-                (Math.random() - 0.5) * 20,
-                (Math.random() - 0.5) * 20,
-                (Math.random() - 0.5) * 20
-            );
-
-            // Random rotations
-            mesh.rotation.set(
-                Math.random() * Math.PI,
-                Math.random() * Math.PI,
-                Math.random() * Math.PI
-            );
-
-            scene.add(mesh);
-            meshes.push(mesh);
+            });
         }
-
-        camera.position.z = 15;
-
-        // Mouse interaction
-        let mouseX = 0;
-        let mouseY = 0;
-
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
-
-        // Animation loop
-        const animate = () => {
-            requestAnimationFrame(animate);
-
-            // Rotate meshes
-            meshes.forEach((mesh, i) => {
-                mesh.rotation.x += 0.005 + i * 0.001;
-                mesh.rotation.y += 0.005 + i * 0.001;
-
-                // Float animation
-                mesh.position.y += Math.sin(Date.now() * 0.001 + i) * 0.01;
-            });
-
-            // Camera movement based on mouse
-            camera.position.x += (mouseX * 3 - camera.position.x) * 0.05;
-            camera.position.y += (mouseY * 3 - camera.position.y) * 0.05;
-            camera.lookAt(scene.position);
-
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
     }
 
     // Advanced Typing Effect
@@ -380,10 +273,14 @@ class AdvancedPortfolio {
                         behavior: 'smooth'
                     });
 
-                    // Close mobile menu if open
+                    // Fecha o menu mobile. O botão hambúrguer também precisa
+                    // perder o estado 'active', senão o ícone fica travado no X.
                     const mobileMenu = document.getElementById('mobileMenu');
+                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
                     if (mobileMenu && mobileMenu.classList.contains('active')) {
                         mobileMenu.classList.remove('active');
+                        mobileMenuBtn?.classList.remove('active');
+                        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
                     }
                 }
             });
@@ -403,10 +300,12 @@ class AdvancedPortfolio {
             });
 
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                const isCurrent = link.getAttribute('href') === `#${current}`;
+                link.classList.toggle('active', isCurrent);
+                // aria-current comunica a seção ativa a leitores de tela,
+                // que não enxergam a classe CSS.
+                if (isCurrent) link.setAttribute('aria-current', 'page');
+                else link.removeAttribute('aria-current');
             });
         });
     }
@@ -457,24 +356,35 @@ class AdvancedPortfolio {
 
         if (!mobileMenuBtn || !mobileMenu) return;
 
+        const setExpanded = (isOpen) => {
+            mobileMenu.classList.toggle('active', isOpen);
+            mobileMenuBtn.classList.toggle('active', isOpen);
+            mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        };
+
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
+            setExpanded(!mobileMenu.classList.contains('active'));
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
+                setExpanded(false);
+            }
+        });
+
+        // Esc fecha o menu — esperado em qualquer overlay.
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                setExpanded(false);
+                mobileMenuBtn.focus();
             }
         });
 
         // Close menu on window resize
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
+                setExpanded(false);
             }
         });
     }
@@ -518,37 +428,30 @@ document.addEventListener('DOMContentLoaded', () => {
     new AdvancedPortfolio();
 });
 
-// Performance optimization - Intersection Observer
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// NOTA: o IntersectionObserver de '.fade-in' e a rolagem suave dos links de
+// navegação ficam em AdvancedPortfolio (setupScrollAnimations / setupNavigation).
+// Existiam aqui duplicados: cada link de navegação recebia dois handlers de clique
+// que disparavam rolagens concorrentes — uma com deslocamento de 80px para o
+// cabeçalho fixo e outra sem — o que causava o solavanco ao final do movimento.
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Observe all animatable elements when DOM loads
+// Rolagem suave apenas para âncoras que a navegação não cobre (ex.: links no
+// corpo do texto), sem sobrepor o handler principal.
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
+    const handled = '.nav-link, .mobile-nav-link';
 
-    // Add smooth scrolling fallback for browsers without CSS support
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        if (anchor.matches(handled)) return;
+
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+
+        anchor.addEventListener('click', (e) => {
+            const target = document.querySelector(href);
+            if (!target) return;
+
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            const offsetTop = target.offsetTop - 80; // compensa o cabeçalho fixo
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         });
     });
 });
@@ -573,13 +476,15 @@ class Chatbot {
         this.responses = this.generateResponses();
 
         // ========================
-        // 🔑 CONFIGURAÇÃO ELEVENLABS API
+        // 🔊 CONFIGURAÇÃO DE VOZ (TTS)
         // ========================
-        // INSTRUÇÕES: Cole sua API Key do ElevenLabs aqui
-        // 1. Acesse: https://elevenlabs.io
-        // 2. Faça login e vá em Profile Settings
-        // 3. Copie sua API Key e cole entre as aspas abaixo
-        this.ELEVENLABS_API_KEY = '2e89a7df2f014e0c2adac55415b8dcfee91b18143b1705ffa34659d120e46fed'; // ✅ API KEY CONFIGURADA
+        // 🔊 CONFIGURAÇÃO DE VOZ (TTS)
+        // ========================
+        // A chave do ElevenLabs NÃO pode viver no código nem no config.generated.js:
+        // este é um site estático e qualquer valor no JS é público. A síntese de voz
+        // premium passa por um proxy no servidor (URL vinda do .env); sem proxy, usamos
+        // a Web Speech API do navegador, que é gratuita e não exige credencial.
+        this.TTS_PROXY_URL = window.APP_CONFIG?.tts?.proxyUrl || '';
 
         // Voice IDs (vozes pré-selecionadas de alta qualidade)
         this.VOICES = {
@@ -593,8 +498,24 @@ class Chatbot {
 
         this.currentVoice = 'pt'; // Voz padrão
 
-        this.currentAudio = null; // Para controlar o áudio em reprodução
+        this.currentAudio = null;    // Áudio do ElevenLabs em reprodução
+        this.speakingButton = null;  // Botão que disparou a fala atual
     }
+
+    /**
+     * Códigos BCP-47 para a Web Speech API, um por idioma do menu de vozes.
+     *
+     * Antes só existiam pt-BR e en-US: escolher Español, Deutsch, 中文 ou Русский
+     * traduzia o texto, mas o navegador continuava lendo com voz portuguesa.
+     */
+    static LANG_CODES = {
+        pt: 'pt-BR',
+        en: 'en-US',
+        es: 'es-ES',
+        de: 'de-DE',
+        zh: 'zh-CN',
+        ru: 'ru-RU'
+    };
 
     init() {
         this.setupEventListeners();
@@ -869,9 +790,8 @@ class Chatbot {
         // Limpar estado de todos os botões
         document.querySelectorAll('.tts-btn').forEach(b => b.classList.remove('speaking'));
 
-        // Verificar se a API key foi configurada
-        if (this.ELEVENLABS_API_KEY === 'SUA_API_KEY_AQUI' || !this.ELEVENLABS_API_KEY) {
-            console.warn('⚠️ ElevenLabs API Key não configurada. Usando Web Speech API como fallback.');
+        // Sem proxy configurado, a voz do navegador atende — e não custa nada.
+        if (!this.TTS_PROXY_URL) {
             this.speakWithWebAPI(text, btn, lang);
             return;
         }
@@ -886,22 +806,14 @@ class Chatbot {
             // Selecionar voice ID (Prioriza a voz selecionada no menu superior)
             const voiceId = this.VOICES[this.currentVoice]?.id || this.VOICES[lang]?.id || this.VOICES.pt.id;
 
-            // Chamar API do ElevenLabs
-            const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+            // O proxy guarda a credencial e repassa a chamada ao ElevenLabs.
+            const response = await fetch(this.TTS_PROXY_URL, {
                 method: 'POST',
                 headers: {
                     'Accept': 'audio/mpeg',
-                    'Content-Type': 'application/json',
-                    'xi-api-key': this.ELEVENLABS_API_KEY
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    text: text,
-                    model_id: 'eleven_multilingual_v2',
-                    voice_settings: {
-                        stability: 0.5,
-                        similarity_boost: 0.75
-                    }
-                })
+                body: JSON.stringify({ text, voiceId })
             });
 
             if (!response.ok) {
@@ -942,7 +854,7 @@ class Chatbot {
             await this.currentAudio.play();
 
         } catch (error) {
-            console.error('❌ Erro ao usar ElevenLabs API:', error);
+            console.error('❌ Erro no proxy de TTS:', error);
             console.log('🔄 Usando Web Speech API como fallback...');
 
             // Fallback para Web Speech API
@@ -954,40 +866,111 @@ class Chatbot {
         }
     }
 
-    // Fallback: Método antigo usando Web Speech API
-    speakWithWebAPI(text, btn, lang = 'pt') {
-        if (!('speechSynthesis' in window)) return;
-
-        if (window.speechSynthesis.speaking) {
-            window.speechSynthesis.cancel();
-            if (btn && btn.classList.contains('speaking')) {
-                btn.classList.remove('speaking');
+    /**
+     * Lista de vozes do navegador.
+     *
+     * No Chrome, `getVoices()` devolve [] na primeira chamada — o catálogo é
+     * carregado de forma assíncrona e só então dispara `voiceschanged`. A versão
+     * anterior chamava getVoices(), via a lista vazia, registrava um handler que
+     * reatribuía uma variável local e seguia adiante mesmo assim: nenhuma voz era
+     * escolhida e o navegador falava com a voz padrão do sistema, quase sempre
+     * no idioma errado.
+     *
+     * Aqui a fala espera o catálogo ficar pronto. O timeout evita travar em
+     * navegadores que nunca disparam o evento.
+     */
+    getVoices() {
+        return new Promise((resolve) => {
+            const existing = window.speechSynthesis.getVoices();
+            if (existing.length > 0) {
+                resolve(existing);
                 return;
             }
+
+            let settled = false;
+            const finish = () => {
+                if (settled) return;
+                settled = true;
+                clearTimeout(timer);
+                window.speechSynthesis.removeEventListener('voiceschanged', finish);
+                resolve(window.speechSynthesis.getVoices());
+            };
+
+            const timer = setTimeout(finish, 1500);
+            window.speechSynthesis.addEventListener('voiceschanged', finish);
+        });
+    }
+
+    /**
+     * Escolhe a melhor voz disponível para um idioma.
+     * Prefere a variante regional exata (pt-BR) e aceita o idioma base (pt).
+     */
+    pickVoice(voices, langCode) {
+        const normalized = langCode.toLowerCase().replace('_', '-');
+        const base = normalized.split('-')[0];
+
+        const exact = voices.find(v => v.lang.toLowerCase().replace('_', '-') === normalized);
+        if (exact) return exact;
+
+        const sameLanguage = voices.filter(v => v.lang.toLowerCase().startsWith(base));
+        if (sameLanguage.length === 0) return null;
+
+        // Vozes locais soam melhor e não dependem de rede.
+        return sameLanguage.find(v => v.localService) || sameLanguage[0];
+    }
+
+    // Fala usando a Web Speech API do navegador (gratuita, sem credencial).
+    async speakWithWebAPI(text, btn, lang = 'pt') {
+        if (!('speechSynthesis' in window)) {
+            console.warn('Este navegador não suporta síntese de voz.');
+            return;
         }
 
-        document.querySelectorAll('.tts-btn').forEach(b => b.classList.remove('speaking'));
+        const resetButton = (button) => {
+            if (!button) return;
+            button.classList.remove('speaking');
+            button.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
+        };
 
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = lang === 'en' ? 'en-US' : 'pt-BR';
-        utterance.rate = 1.1;
+        // Já falando? O clique funciona como "parar".
+        const wasSpeaking = window.speechSynthesis.speaking || window.speechSynthesis.pending;
+        window.speechSynthesis.cancel();
+        document.querySelectorAll('.tts-btn').forEach(resetButton);
+
+        if (wasSpeaking && btn === this.speakingButton) {
+            this.speakingButton = null;
+            return;
+        }
+
+        // O texto vem do DOM e pode conter entidades HTML; normaliza espaços.
+        const spokenText = String(text).replace(/\s+/g, ' ').trim();
+        if (!spokenText) return;
+
+        // Idioma: o menu de vozes manda; a mensagem traduzida é o fallback.
+        const langKey = this.VOICES[this.currentVoice] ? this.currentVoice : lang;
+        const langCode = Chatbot.LANG_CODES[langKey] || Chatbot.LANG_CODES.pt;
+
+        if (btn) {
+            btn.classList.add('speaking');
+            btn.innerHTML = '<i class="bi bi-hourglass-split"></i>';
+        }
+        this.speakingButton = btn;
+
+        const voices = await this.getVoices();
+
+        const utterance = new SpeechSynthesisUtterance(spokenText);
+        utterance.lang = langCode;
+        utterance.rate = 1.05;
         utterance.pitch = 1;
 
-        let voices = window.speechSynthesis.getVoices();
-        if (voices.length === 0) {
-            window.speechSynthesis.onvoiceschanged = () => {
-                voices = window.speechSynthesis.getVoices();
-            };
-        }
-
-        let voice = null;
-        if (lang === 'en') {
-            voice = voices.find(v => v.lang.includes('en-US') || v.lang.includes('en_US'));
+        const voice = this.pickVoice(voices, langCode);
+        if (voice) {
+            utterance.voice = voice;
         } else {
-            voice = voices.find(v => v.lang.includes('pt-BR') || v.lang.includes('pt_BR'));
+            // Sem voz instalada para o idioma, o navegador usaria a padrão e leria
+            // com a fonética errada. Avisar ajuda a diagnosticar.
+            console.info(`Nenhuma voz instalada para "${langCode}"; usando a voz padrão do sistema.`);
         }
-
-        if (voice) utterance.voice = voice;
 
         utterance.onstart = () => {
             if (btn) {
@@ -997,17 +980,18 @@ class Chatbot {
         };
 
         utterance.onend = () => {
-            if (btn) {
-                btn.classList.remove('speaking');
-                btn.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
-            }
+            resetButton(btn);
+            if (this.speakingButton === btn) this.speakingButton = null;
         };
 
-        utterance.onerror = () => {
-            if (btn) {
-                btn.classList.remove('speaking');
-                btn.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
+        utterance.onerror = (event) => {
+            // 'interrupted'/'canceled' são esperados quando o usuário troca de
+            // mensagem — não são falhas.
+            if (event.error && !['interrupted', 'canceled'].includes(event.error)) {
+                console.error('Erro na síntese de voz:', event.error);
             }
+            resetButton(btn);
+            if (this.speakingButton === btn) this.speakingButton = null;
         };
 
         window.speechSynthesis.speak(utterance);
@@ -1146,6 +1130,15 @@ class Chatbot {
                     {
                         pt: "Renan de Oliveira Farias reside em <strong>Americana, São Paulo</strong>. Ele atua profissionalmente na região e também trabalha em projetos remotos.",
                         en: "Renan de Oliveira Farias lives in <strong>Americana, São Paulo, Brazil</strong>. He works professionally in the region and also on remote projects."
+                    }
+                ]
+            },
+            {
+                keywords: ['claude code', 'code pro', 'como desenvolve', 'fluxo de trabalho', 'workflow', 'ferramentas de dev'],
+                responses: [
+                    {
+                        pt: "Os desenvolvimentos atuais de Renan são conduzidos com auxílio do <strong>Claude Code Pro</strong>, usado para revisão de código, refatoração assistida e aceleração da implementação. As decisões de arquitetura e a validação final continuam sendo dele — a IA entra como ferramenta de produtividade, não como substituta do critério técnico.",
+                        en: "Renan's current development work is carried out with the help of <strong>Claude Code Pro</strong>, used for code review, assisted refactoring, and faster implementation. Architecture decisions and final validation remain his own — AI is a productivity tool here, not a replacement for technical judgment."
                     }
                 ]
             },
@@ -1574,71 +1567,29 @@ class NandevWatermark {
     }
 }
 
-// Integração com o sistema existente
-document.addEventListener('DOMContentLoaded', () => {
-    // Aguardar um pouco para garantir que tudo carregou
-    setTimeout(() => {
-        const nandevWatermark = new NandevWatermark();
-        nandevWatermark.recreateParticles();
-    }, 1000);
-});
+// Inicialização única da marca d'água.
+// Antes existiam dois blocos: um listener de DOMContentLoaded e um bloco de
+// fallback que registrava OUTRO listener quando readyState === 'loading'. Com o
+// documento ainda carregando — o caso normal — ambos disparavam, criando duas
+// instâncias e dois setInterval permanentes recriando partículas.
+function initNandevWatermark() {
+    if (window.nandevWatermarkInitialized) return;
+    window.nandevWatermarkInitialized = true;
 
-// Fallback caso DOMContentLoaded já tenha disparado
+    setTimeout(() => {
+        const watermark = new NandevWatermark();
+        watermark.recreateParticles();
+    }, 1000);
+}
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-            const nandevWatermark = new NandevWatermark();
-            nandevWatermark.recreateParticles();
-        }, 1000);
-    });
+    document.addEventListener('DOMContentLoaded', initNandevWatermark, { once: true });
 } else {
-    setTimeout(() => {
-        const nandevWatermark = new NandevWatermark();
-        nandevWatermark.recreateParticles();
-    }, 1000);
+    initNandevWatermark();
 }
 
-// Contact Form Handler
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Coletar dados do formulário
-        const formData = {
-            fullName: document.getElementById('fullName').value,
-            company: document.getElementById('company').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            product: document.getElementById('product').value,
-            message: document.getElementById('message').value
-        };
-
-        // Aqui você pode enviar para um backend ou email
-        // Por enquanto, vou mostrar um alerta de sucesso
-
-        // Simular envio
-        const submitBtn = contactForm.querySelector('.btn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        submitBtn.disabled = true;
-
-        setTimeout(() => {
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
-            submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00cc6a)';
-
-            // Reset form
-            contactForm.reset();
-
-            // Restaurar botão após 3 segundos
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.background = '';
-            }, 3000);
-        }, 1500);
-
-        console.log('Dados do formulário:', formData);
-    });
-}
+// NOTA: o handler de submit do formulário vive em js/contact-form-email.js.
+// Havia aqui um segundo handler que apenas SIMULAVA o envio: ele resetava o
+// formulário e exibia "Mensagem Enviada!" independentemente do resultado real
+// do EmailJS. Como ambos escutavam o mesmo submit, uma falha de envio ainda
+// mostrava sucesso ao visitante — e o reset apagava os dados antes do envio.

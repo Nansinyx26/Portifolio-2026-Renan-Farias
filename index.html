@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!-- Substitua a seção HEAD do seu index.html por esta versão corrigida -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renan de Oliveira Farias - Dev Junior , e Tecnico Maker Portfolio</title>
-    <meta name="description" content="Portfolio avançado com React, Three.js, GSAP e tecnologias cutting-edge">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
 
-    <!-- Título e descrição -->
+    <!-- Título e descrição (únicos: havia duas tags <title> concorrentes) -->
     <title>Renan de Oliveira Farias | Desenvolvedor & Especialista em Tecnologias Maker | Portfolio</title>
     <meta name="description"
         content="Portfolio de Renan de Oliveira Farias - Desenvolvedor especializado em JavaScript, React, Three.js, Arduino, Impressão 3D, IA e tecnologias maker. Graduado em Jogos Digitais pela Fatec Americana.">
@@ -39,7 +35,7 @@
     <meta property="og:url" content="https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/">
     <meta property="og:site_name" content="Portfolio Renan de Oliveira Farias">
     <meta property="og:image"
-        content="https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/imagens/profile-img.jpg">
+        content="https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/imagens/profile-img.png">
     <meta property="og:image:alt"
         content="Renan de Oliveira Farias - Desenvolvedor e Especialista em Tecnologias Maker">
     <meta property="og:image:width" content="1200">
@@ -52,7 +48,7 @@
     <meta name="twitter:description"
         content="Portfolio profissional com projetos em JavaScript, React, Three.js, Arduino, Impressão 3D e integração de IA.">
     <meta name="twitter:image"
-        content="https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/imagens/profile-img.jpg">
+        content="https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/imagens/profile-img.png">
     <meta name="twitter:image:alt" content="Renan de Oliveira Farias - Portfolio">
 
     <!-- LinkedIn específico -->
@@ -67,7 +63,7 @@
   "alternateName": "Renan de Oliveira Farias",
   "description": "Desenvolvedor especializado em JavaScript, React, Three.js, Arduino, Impressão 3D e tecnologias maker",
   "url": "https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/",
-  "image": "https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/imagens/profile-img.jpg",
+  "image": "https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/imagens/profile-img.png",
   "sameAs": [
     "https://www.linkedin.com/in/renan-de-oliveira-farias-66a9b412b/",
     "https://github.com/Nansinyx26"
@@ -110,66 +106,104 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://nansinyx26.github.io/Portifolio-2026-Renan-Farias/">
 
-    <!-- Preload de recursos críticos -->
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="js/script.js" as="script">
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
-        as="style">
-
-    <!-- DNS prefetch para recursos externos -->
+    <!--
+      Conexão antecipada com as origens críticas. `preconnect` abre DNS + TCP + TLS
+      de uma vez — bem mais eficaz que `dns-prefetch`, que resolve apenas o DNS.
+      `fonts.gstatic.com` precisa de crossorigin: os arquivos de fonte são CORS.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <!-- Favicons com caminhos relativos -->
+
+    <!--
+      Favicons. O SVG é preferido pelos navegadores modernos (nítido em qualquer
+      densidade de tela); os PNGs seguem como fallback para os que não suportam.
+    -->
+    <link rel="icon" type="image/svg+xml" href="imagens/logo-mark.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="imagens/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- (não há favicon.ico no repositório: a referência gerava um 404 em toda visita) -->
 
-    <!-- Manifest com caminho relativo -->
     <link rel="manifest" href="manifest.json">
 
     <meta name="theme-color" content="#00ff88">
     <meta name="msapplication-TileColor" content="#00ff88">
 
-    <!-- Preload critical resources -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
-        as="style">
+    <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
+    <!--
+      Ordem das folhas de estilo é significativa:
+      style.css (base) -> marcadagua.css (componente) -> design-system.css (tokens).
+      A camada de tokens vem por último para remapear as variáveis legadas.
+    -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/marcadagua.css">
+    <link rel="stylesheet" href="css/design-system.css">
 
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!--
+      Three.js moderno via import map. Substitui a r128 (2021), que não tem
+      gerenciamento de cor linear, tone mapping ACES nem materiais físicos com
+      transmissão/iridescência — os recursos que sustentam o realismo da cena.
+    -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 
 <body data-theme="dark">
+    <!-- Pular para o conteúdo: primeiro item do foco por teclado -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
     <!-- Loading Screen -->
-    <div class="loader">
+    <div class="loader" role="status" aria-live="polite">
         <div class="loader-text">Carregando...</div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <!-- Cursor decorativo: invisível para tecnologias assistivas -->
+    <div class="custom-cursor" aria-hidden="true"></div>
 
     <!-- Header -->
     <header class="header" id="header">
-        <nav class="nav">
-            <div class="logo">RO</div>
+        <nav class="nav" aria-label="Navegação principal">
+            <!--
+              Logo em SVG inline: sem requisição extra, escala sem perder
+              nitidez e herda a cor do tema pelos gradientes.
+            -->
+            <a href="#home" class="logo" aria-label="Início — Renan de Oliveira Farias">
+                <svg class="logo-mark" viewBox="0 0 64 64" width="38" height="38" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="navLogoStroke" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="var(--primary)"/>
+                            <stop offset="100%" stop-color="var(--secondary)"/>
+                        </linearGradient>
+                    </defs>
+                    <g fill="none" stroke="url(#navLogoStroke)" stroke-width="5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 46V18h10a7 7 0 0 1 0 14H14"/>
+                        <path d="M22 32l9 14"/>
+                        <circle cx="47" cy="32" r="13"/>
+                    </g>
+                    <circle cx="47" cy="32" r="3" fill="var(--accent)"/>
+                </svg>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
@@ -184,10 +218,11 @@
             </button>
 
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu móvel">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu de navegação"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
         </nav>
 
@@ -205,18 +240,25 @@
         </div>
     </header>
 
+    <main id="main-content">
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <section id="home" class="hero" aria-labelledby="hero-title">
+        <!-- Cena 3D puramente decorativa -->
+        <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
         <div class="hero-content">
             <div class="hero-badge">
-                <span><i class="bi bi-rocket-takeoff"></i></span>
+                <span aria-hidden="true"><i class="bi bi-rocket-takeoff"></i></span>
                 <span class="badge-text">Disponível para novos projetos</span>
             </div>
-            <h1 class="hero-title">RENAN DE OLIVEIRA FARIAS</h1>
-            <div class="hero-subtitle">
+            <h1 class="hero-title" id="hero-title">RENAN DE OLIVEIRA FARIAS</h1>
+            <!--
+              O texto é reescrito continuamente pelo efeito de digitação. Sem
+              aria-live="off" um leitor de tela anunciaria cada caractere.
+            -->
+            <div class="hero-subtitle" aria-live="off">
                 <span id="typed-text"></span>
-                <span class="typing-cursor"></span>
+                <span class="typing-cursor" aria-hidden="true"></span>
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Ver Projetos</a>
@@ -229,13 +271,14 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section about">
+    <section id="about" class="section about" aria-labelledby="about-title">
         <div class="container">
-            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <h2 class="section-title fade-in" id="about-title">Sobre Mim</h2>
             <div class="about-grid">
                 <div class="about-image fade-in">
                     <div class="profile-container">
                         <img src="imagens/profile-img.png" alt="Renan de Oliveira Farias" class="profile-img"
+                            width="400" height="400" decoding="async"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="profile-placeholder" style="display: none;">
                             <i class="fas fa-user"></i>
@@ -253,6 +296,11 @@
                         aplicações, utilizando também a ferramenta <strong>AtinGravity</strong> para prototipagem e
                         aceleração de
                         desenvolvimento.</p>
+                    <p>Os desenvolvimentos atuais são conduzidos com auxílio do
+                        <strong>Claude Code Pro</strong>, adotado no fluxo de trabalho para revisão de código,
+                        refatoração assistida e aceleração da implementação — com as decisões de arquitetura e a
+                        validação final permanecendo sob minha responsabilidade.
+                    </p>
                     <div class="info-grid">
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -277,9 +325,9 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills" class="section" aria-labelledby="skills-title">
         <div class="container">
-            <h2 class="section-title fade-in">Habilidades Técnicas</h2>
+            <h2 class="section-title fade-in" id="skills-title">Habilidades Técnicas</h2>
             <div class="skills-grid">
                 <div class="skill-card fade-in">
                     <div class="skill-icon"><i class="bi bi-laptop"></i></div>
@@ -312,9 +360,11 @@
                     <div class="skill-icon"><i class="bi bi-robot"></i></div>
                     <h3>Inteligência Artificial</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Claude Code Pro</span>
                         <span class="skill-tag">ChatGPT</span>
                         <span class="skill-tag">Claude AI</span>
                         <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Desenvolvimento Assistido por IA</span>
                         <span class="skill-tag">Automação</span>
                         <span class="skill-tag">IA Educacional</span>
                     </div>
@@ -370,9 +420,9 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section experience">
+    <section id="experience" class="section experience" aria-labelledby="experience-title">
         <div class="container">
-            <h2 class="section-title fade-in">Experiência Profissional</h2>
+            <h2 class="section-title fade-in" id="experience-title">Experiência Profissional</h2>
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
@@ -433,9 +483,9 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="section">
+    <section id="certifications" class="section" aria-labelledby="certifications-title">
         <div class="container">
-            <h2 class="section-title fade-in">Certificações & Reconhecimentos</h2>
+            <h2 class="section-title fade-in" id="certifications-title">Certificações & Reconhecimentos</h2>
             <div class="skills-grid">
                 <div class="skill-card fade-in">
                     <div class="skill-icon"><i class="bi bi-award"></i></div>
@@ -518,13 +568,13 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section projects">
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
         <div class="container">
-            <h2 class="section-title fade-in">Projetos em Destaque</h2>
+            <h2 class="section-title fade-in" id="projects-title">Projetos em Destaque</h2>
             <div class="projects-grid">
                 <div class="project-card fade-in professional">
                     <div class="project-image">
-                        <img src="Gif/gif (1).gif" alt="Gestão Escolar"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/gif (1).gif" alt="Gestão Escolar"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-school"></i>
@@ -556,7 +606,7 @@
 
                 <div class="project-card fade-in professional">
                     <div class="project-image">
-                        <img src="Gif/Gravando 2026-01-03 102900.gif" alt="Fabricio Porto - Violinista"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/Gravando 2026-01-03 102900.gif" alt="Fabricio Porto - Violinista"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="bi bi-music-note-beamed"></i>
@@ -589,7 +639,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/makercoin.gif" alt="MakerCoins3.0"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/makercoin.gif" alt="MakerCoins3.0"
                             style="object-fit: contain; background-color: #000;"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
@@ -624,7 +674,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/didaxia.gif" alt="Didax-IA" style="object-fit: contain; background-color: #000;"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/didaxia.gif" alt="Didax-IA" style="object-fit: contain; background-color: #000;"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-brain"></i>
@@ -653,7 +703,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/sol vr .gif" alt="Sistema Solar"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/sol vr .gif" alt="Sistema Solar"
                             style="object-fit: contain; background-color: #000;"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
@@ -688,7 +738,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/campeonato de botao .gif" alt="Sistema Futebol de Botão"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/campeonato de botao .gif" alt="Sistema Futebol de Botão"
                             style="object-fit: contain; background-color: #000;"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
@@ -724,7 +774,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/avalia-estrela.gif" alt="Sistema de Avaliação"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/avalia-estrela.gif" alt="Sistema de Avaliação"
                             style="object-fit: contain; background-color: #000;"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
@@ -755,7 +805,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/senha-criptografada.gif" alt="Cadastro de Senha Criptografada"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/senha-criptografada.gif" alt="Cadastro de Senha Criptografada"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-lock"></i>
@@ -786,7 +836,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="Gif/organize.gif" alt="OrganizePY2"
+                        <img loading="lazy" decoding="async" width="800" height="500" src="Gif/organize.gif" alt="OrganizePY2"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="project-placeholder" style="display: none;">
                             <i class="fas fa-folder-open"></i>
@@ -816,13 +866,12 @@
 
             </div>
         </div>
-        </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
         <div class="container">
-            <h2 class="section-title fade-in">Vamos Criar Algo Incrível?</h2>
+            <h2 class="section-title fade-in" id="contact-title">Vamos Criar Algo Incrível?</h2>
             <div class="contact-content fade-in">
                 <p>Estou sempre aberto a novos desafios e oportunidades. Entre em contato para discutirmos como posso
                     contribuir com tecnologias avançadas!</p>
@@ -854,9 +903,9 @@
     </section>
 
     <!-- Message Section -->
-    <section id="message" class="section message-section">
+    <section id="message" class="section message-section" aria-labelledby="message-title">
         <div class="container">
-            <h2 class="section-title fade-in">Envie sua Mensagem</h2>
+            <h2 class="section-title fade-in" id="message-title">Envie sua Mensagem</h2>
             <p class="message-intro fade-in">Preencha o formulário abaixo e entraremos em contato o mais breve possível
             </p>
 
@@ -918,11 +967,13 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Mensagem
                 </button>
             </form>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -944,7 +995,11 @@
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
-            <p>&copy; 2025 Renan de Oliveira Farias. Desenvolvido com tecnologias avançadas e muito ❤️</p>
+            <p>&copy; 2026 Renan de Oliveira Farias. Desenvolvido com tecnologias avançadas e muito ❤️</p>
+            <p class="footer-credit">
+                Desenvolvimentos atuais realizados com auxílio do
+                <strong>Claude Code Pro</strong> · Cena 3D em Three.js com renderização PBR
+            </p>
             <!-- ADICIONAR AQUI A MARCA D'ÁGUA -->
             <a href="https://www.linkedin.com/in/renan-de-oliveira-farias-66a9b412b/" target="_blank"
                 rel="noopener noreferrer" class="nandev-watermark">
@@ -1006,8 +1061,23 @@
 
         </div>
     </footer>
-    <script src="js/script.js"></script>
-    <script src="js/contact-form-email.js"></script>
+    <!--
+      Ordem obrigatória: config.generated.js define window.__APP_CONFIG__ e
+      config.js o normaliza em window.APP_CONFIG — ambos precisam rodar antes
+      dos scripts que leem credenciais.
+
+      config.generated.js é criado por `node scripts/build-config.mjs` a partir
+      do .env e não é versionado. Se estiver ausente, config.js aplica padrões
+      seguros e o site continua funcionando.
+    -->
+    <script src="js/config.generated.js"></script>
+    <script src="js/config.js"></script>
+
+    <script defer src="js/script.js"></script>
+    <script defer src="js/contact-form-email.js"></script>
+
+    <!-- Cena 3D do hero: módulo ESM, adiado por natureza -->
+    <script type="module" src="js/hero-scene.js"></script>
 
     <!-- Chatbot HTML Structure -->
     <div class="chatbot-container">

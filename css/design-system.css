@@ -1,0 +1,534 @@
+/**
+ * DESIGN-SYSTEM.CSS — Camada de design tokens
+ * Portfolio Renan de Oliveira Farias
+ *
+ * Carregado DEPOIS de style.css: define uma escala de tokens no estilo shadcn/ui
+ * (OKLCH, raio, anel de foco, elevação, ritmo tipográfico) e remapeia as variáveis
+ * legadas para essa escala. Assim a folha de estilos existente herda a paleta nova
+ * sem precisar ser reescrita.
+ *
+ * OKLCH mantém o brilho percebido constante entre matizes — é por isso que o verde
+ * e o rosa aqui parecem ter a mesma intensidade, o que não acontece em HSL/RGB.
+ */
+
+/* =========================================================================
+   1. Tokens primitivos
+   ========================================================================= */
+
+:root {
+    /* -- Escala de raio (shadcn: um valor base, o resto deriva) -- */
+    --radius: 0.75rem;
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-full: 9999px;
+
+    /* -- Elevação: sombras em camadas imitam oclusão real -- */
+    --elevation-1: 0 1px 2px -1px oklch(0% 0 0 / 0.28), 0 1px 3px oklch(0% 0 0 / 0.16);
+    --elevation-2: 0 2px 4px -2px oklch(0% 0 0 / 0.3), 0 4px 12px -2px oklch(0% 0 0 / 0.2);
+    --elevation-3: 0 4px 8px -4px oklch(0% 0 0 / 0.34), 0 12px 32px -8px oklch(0% 0 0 / 0.26);
+    --elevation-4: 0 8px 16px -8px oklch(0% 0 0 / 0.4), 0 24px 64px -12px oklch(0% 0 0 / 0.34);
+
+    /* -- Movimento: curvas nomeadas, não números mágicos espalhados -- */
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --duration-fast: 150ms;
+    --duration-base: 250ms;
+    --duration-slow: 400ms;
+
+    /* -- Anel de foco -- */
+    --ring-width: 2px;
+    --ring-offset: 2px;
+}
+
+/* =========================================================================
+   2. Paleta — tema escuro (padrão)
+   ========================================================================= */
+
+:root,
+[data-theme="dark"] {
+    --brand-primary: oklch(0.87 0.24 155);
+    --brand-secondary: oklch(0.66 0.18 245);
+    --brand-accent: oklch(0.65 0.28 355);
+
+    --surface-0: oklch(0.14 0.012 250);
+    --surface-1: oklch(0.18 0.014 250);
+    --surface-2: oklch(0.22 0.016 250);
+
+    --content-strong: oklch(0.98 0.004 250);
+    --content-muted: oklch(0.72 0.018 250);
+    --content-subtle: oklch(0.58 0.02 250);
+
+    --border-subtle: oklch(1 0 0 / 0.09);
+    --border-strong: oklch(1 0 0 / 0.16);
+    --ring-color: var(--brand-primary);
+
+    /* Remapeamento das variáveis legadas usadas por style.css */
+    --primary: var(--brand-primary);
+    --secondary: var(--brand-secondary);
+    --accent: var(--brand-accent);
+    --bg-dark: var(--surface-0);
+    --bg-dark-alt: var(--surface-1);
+    --bg-card: var(--surface-1);
+    --text-light: var(--content-strong);
+    --text-gray: var(--content-muted);
+    --glass-bg: oklch(1 0 0 / 0.045);
+    --glass-border: var(--border-subtle);
+    --shadow-glow: 0 0 60px oklch(0.87 0.24 155 / 0.22);
+}
+
+/* =========================================================================
+   3. Paleta — tema claro
+   ========================================================================= */
+
+[data-theme="light"] {
+    --brand-primary: oklch(0.62 0.17 155);
+    --brand-secondary: oklch(0.55 0.17 245);
+    --brand-accent: oklch(0.55 0.24 355);
+
+    --surface-0: oklch(0.99 0.002 250);
+    --surface-1: oklch(0.97 0.004 250);
+    --surface-2: oklch(0.94 0.006 250);
+
+    --content-strong: oklch(0.22 0.014 250);
+    --content-muted: oklch(0.45 0.016 250);
+    --content-subtle: oklch(0.58 0.014 250);
+
+    --border-subtle: oklch(0.22 0.014 250 / 0.1);
+    --border-strong: oklch(0.22 0.014 250 / 0.18);
+
+    --glass-bg: oklch(0.22 0.014 250 / 0.035);
+    --glass-border: var(--border-subtle);
+    --shadow-glow: 0 0 60px oklch(0.62 0.17 155 / 0.18);
+
+    /* Sombras precisam ser mais suaves sobre fundo claro. */
+    --elevation-1: 0 1px 2px -1px oklch(0.22 0.014 250 / 0.1), 0 1px 3px oklch(0.22 0.014 250 / 0.06);
+    --elevation-2: 0 2px 4px -2px oklch(0.22 0.014 250 / 0.1), 0 4px 12px -2px oklch(0.22 0.014 250 / 0.08);
+    --elevation-3: 0 4px 8px -4px oklch(0.22 0.014 250 / 0.12), 0 12px 32px -8px oklch(0.22 0.014 250 / 0.1);
+    --elevation-4: 0 8px 16px -8px oklch(0.22 0.014 250 / 0.14), 0 24px 64px -12px oklch(0.22 0.014 250 / 0.12);
+}
+
+/* =========================================================================
+   4. Base
+   ========================================================================= */
+
+body {
+    /* Antialiasing correto deixa a Inter bem mais limpa em telas não-retina. */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis-weight: none;
+
+    /* A transição genérica `all` do style.css anima layout também — caro e trêmulo. */
+    transition: background-color var(--duration-base) var(--ease-out-quad),
+                color var(--duration-base) var(--ease-out-quad);
+}
+
+/* Rolagem suave só para quem não pediu movimento reduzido. */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+    }
+}
+
+/* =========================================================================
+   5. Foco visível — acessibilidade
+   ========================================================================= */
+
+/* Um único anel consistente em todo o site, só para navegação por teclado. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: var(--ring-width) solid var(--ring-color);
+    outline-offset: var(--ring-offset);
+    border-radius: var(--radius-sm);
+}
+
+/* Link de pular navegação: invisível até receber foco. */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10000;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--surface-0);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    transform: translate(-50%, -100%);
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.skip-link:focus-visible {
+    transform: translate(-50%, 0);
+}
+
+/* =========================================================================
+   6. Refinamento tipográfico
+   ========================================================================= */
+
+/* Tipografia fluida: escala com a viewport sem media queries em cascata. */
+.hero-title {
+    font-size: clamp(2.25rem, 7vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+.section-title {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.2vw, 1.5rem);
+    letter-spacing: -0.01em;
+}
+
+/* Parágrafos longos ficam mais legíveis com medida controlada. */
+.about-content p,
+.message-intro,
+.contact-content > p {
+    max-width: 65ch;
+    text-wrap: pretty;
+}
+
+/* =========================================================================
+   7. Componentes
+   ========================================================================= */
+
+/* -- Botões -------------------------------------------------------------- */
+
+.btn {
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: transform var(--duration-fast) var(--ease-out-expo),
+                box-shadow var(--duration-base) var(--ease-out-quad),
+                background-color var(--duration-fast) var(--ease-out-quad);
+    will-change: transform;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--elevation-3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    transition-duration: 60ms;
+}
+
+/* -- Cards --------------------------------------------------------------- */
+
+.skill-card,
+.project-card {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--elevation-1);
+    transition: transform var(--duration-slow) var(--ease-out-expo),
+                box-shadow var(--duration-slow) var(--ease-out-quad),
+                border-color var(--duration-base) var(--ease-out-quad);
+}
+
+.skill-card:hover,
+.project-card:hover {
+    border-color: color-mix(in oklch, var(--primary) 40%, transparent);
+    box-shadow: var(--elevation-4), 0 0 0 1px color-mix(in oklch, var(--primary) 16%, transparent);
+}
+
+/* Imagens de projeto: proporção fixa elimina o salto de layout no carregamento. */
+.project-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--surface-2);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.04);
+}
+
+/*
+ * `.project-links` é flex sem `flex-wrap`: em cards com três links
+ * (Demo + GitHub + Ver Detalhes) o terceiro botão estourava a borda do card e
+ * era cortado, além de quebrar o rótulo em duas linhas ao ser espremido.
+ */
+.project-links {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.project-link {
+    white-space: nowrap;
+    border-radius: var(--radius-full);
+}
+
+/* -- Tags e badges ------------------------------------------------------- */
+
+.skill-tag,
+.tech-tag {
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: background-color var(--duration-fast) var(--ease-out-quad),
+                border-color var(--duration-fast) var(--ease-out-quad),
+                color var(--duration-fast) var(--ease-out-quad);
+}
+
+.skill-tag:hover,
+.tech-tag:hover {
+    background: color-mix(in oklch, var(--primary) 14%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 45%, transparent);
+    color: var(--primary);
+}
+
+.hero-badge {
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--elevation-1);
+    backdrop-filter: blur(12px);
+}
+
+/* -- Formulário ---------------------------------------------------------- */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    transition: border-color var(--duration-fast) var(--ease-out-quad),
+                box-shadow var(--duration-fast) var(--ease-out-quad);
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: var(--border-strong);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 18%, transparent);
+}
+
+/* Estado de erro nativo, sem JavaScript: só após o usuário sair do campo. */
+.form-group input:not(:placeholder-shown):invalid {
+    border-color: var(--accent);
+}
+
+/* -- Cabeçalho ----------------------------------------------------------- */
+
+.header {
+    /* `saturate` mantém as cores vivas atrás do desfoque em vez de lavá-las. */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: color-mix(in oklch, var(--surface-0) 78%, transparent);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background-color var(--duration-base) var(--ease-out-quad),
+                border-color var(--duration-base) var(--ease-out-quad),
+                box-shadow var(--duration-base) var(--ease-out-quad);
+}
+
+.header.scrolled {
+    background: color-mix(in oklch, var(--surface-0) 92%, transparent);
+    box-shadow: var(--elevation-2);
+}
+
+.nav-link[aria-current="page"] {
+    color: var(--primary);
+}
+
+/* -- Logo ---------------------------------------------------------------- */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.logo-mark {
+    flex-shrink: 0;
+    overflow: visible;
+    transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.logo:hover .logo-mark {
+    transform: rotate(-8deg) scale(1.06);
+}
+
+/*
+ * O símbolo já desenha as letras "R" e "O" — repetir o texto ao lado duplicaria
+ * o monograma ("RO RO"). A leitura acessível fica no aria-label do link.
+ */
+
+/* -- Crédito do rodapé --------------------------------------------------- */
+
+.footer-credit {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--content-subtle);
+    letter-spacing: 0.01em;
+}
+
+.footer-credit strong {
+    color: var(--content-muted);
+    font-weight: 600;
+}
+
+/* =========================================================================
+   8. Barra de rolagem
+   ========================================================================= */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklch, var(--primary) 60%, transparent);
+    background-clip: content-box;
+}
+
+::selection {
+    background: color-mix(in oklch, var(--primary) 30%, transparent);
+    color: var(--content-strong);
+}
+
+/* =========================================================================
+   9. Tela de carregamento
+   ========================================================================= */
+
+/*
+ * O JavaScript adiciona a classe `.hidden`, mas style.css só define
+ * `.loader.fade-out`: a classe não casava com nenhuma regra e não fazia nada.
+ * O desaparecimento dependia só da animação inline do GSAP.
+ *
+ * Se o GSAP não carregar, o código tem um fallback que ajusta o estilo à mão —
+ * esse caso já estava coberto. O problema é quando o GSAP carrega mas a animação
+ * não conclui (aba em segundo plano suspende requestAnimationFrame, ou um erro
+ * impede o onComplete que aplica `display: none`): o loader fica sobreposto e,
+ * sem `pointer-events: none`, continua interceptando os cliques da página.
+ *
+ * Com a regra abaixo o fade é do CSS e o bloqueio de clique some junto com a
+ * classe. O GSAP vira enfeite em vez de dependência.
+ */
+.loader.hidden,
+.loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.6s var(--ease-out-quad), visibility 0s linear 0.6s;
+}
+
+/* =========================================================================
+   10. Fallback sem WebGL
+   ========================================================================= */
+
+/* Se a cena 3D não inicializar, o hero ganha um gradiente no lugar do canvas. */
+.no-webgl .hero {
+    background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, color-mix(in oklch, var(--primary) 16%, transparent), transparent),
+        radial-gradient(ellipse 60% 50% at 85% 40%, color-mix(in oklch, var(--secondary) 12%, transparent), transparent),
+        var(--surface-0);
+}
+
+/* =========================================================================
+   10. Movimento reduzido
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* O cursor customizado é puro movimento — sem ele o ponteiro nativo basta. */
+    .custom-cursor {
+        display: none !important;
+    }
+}
+
+/* Ponteiros grossos (toque) nunca devem ver o cursor customizado. */
+@media (pointer: coarse) {
+    .custom-cursor {
+        display: none !important;
+    }
+}
+
+/* =========================================================================
+   11. Impressão
+   ========================================================================= */
+
+@media print {
+    .header,
+    .mobile-menu,
+    .custom-cursor,
+    .hero-canvas,
+    .chatbot-container,
+    .scroll-indicator,
+    .nandev-watermark,
+    .loader {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .section {
+        padding: 1.5rem 0;
+        break-inside: avoid;
+    }
+
+    /* URLs impressas depois do texto do link — o papel não tem hover. */
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+        color: #555;
+    }
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"
+     role="img" aria-labelledby="logoMarkTitle">
+  <title id="logoMarkTitle">Renan de Oliveira Farias — monograma RO</title>
+
+  <!--
+    Marca monolinha "RO".
+    Traço uniforme e contraforma aberta mantêm o desenho legível a 16px (favicon),
+    onde formas preenchidas viram um borrão. Sem texto convertido em curva: tudo é
+    geometria, então escala sem perder nitidez.
+  -->
+
+  <defs>
+    <linearGradient id="logoStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00ff88"/>
+      <stop offset="55%" stop-color="#00d9ff"/>
+      <stop offset="100%" stop-color="#0099ff"/>
+    </linearGradient>
+  </defs>
+
+  <!--
+    Altura de caixa alta compartilhada: 18 → 46. O "O" é um círculo de raio 13
+    centrado em y=32, então cobre 19 → 45 e alinha com o "R". Sem esse
+    alinhamento o círculo lê como "o" minúsculo e o monograma vira "Ro".
+  -->
+  <g fill="none" stroke="url(#logoStroke)" stroke-width="5"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- R: haste, bojo e perna -->
+    <path d="M14 46V18h10a7 7 0 0 1 0 14H14"/>
+    <path d="M22 32l9 14"/>
+
+    <!-- O: contraforma circular que fecha o monograma -->
+    <circle cx="47" cy="32" r="13"/>
+  </g>
+
+  <!-- Nó de circuito: referência ao trabalho maker/eletrônica -->
+  <circle cx="47" cy="32" r="3" fill="#ff0088"/>
+</svg>

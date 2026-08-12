@@ -5,13 +5,19 @@
  */
 
 // ============================================
-// CONFIGURAÇÃO - SUBSTITUA COM SUAS CREDENCIAIS DO EMAILJS
+// CONFIGURAÇÃO
 // ============================================
-const EMAILJS_CONFIG = {
-    serviceID: 'service_0wckusf',        // Ex: 'service_abc123'
-    templateID_Owner: 'template_ca45d9t', // Template para você receber
-    templateID_Client: 'template_ja6bn5x', // Template de confirmação para cliente
-    publicKey: 'CmCOmPGRuYTCmR-Pl'         // Ex: 'user_xyz789'
+// Os valores vêm do .env via scripts/build-config.mjs -> js/config.generated.js.
+// Para alterá-los, edite o .env e rode: node scripts/build-config.mjs
+//
+// Estas credenciais são publicáveis por design (o EmailJS roda no navegador).
+// A proteção real é a allowlist de domínios no painel do EmailJS —
+// veja .env.example.
+const EMAILJS_CONFIG = window.APP_CONFIG?.emailjs || {
+    serviceID: '',
+    templateID_Owner: '',
+    templateID_Client: '',
+    publicKey: ''
 };
 
 // ============================================
@@ -70,32 +76,59 @@ function loadEmailJS() {
 // FUNÇÃO: VALIDA CONFIGURAÇÃO
 // ============================================
 function validateConfig() {
-    const errors = [];
+    const required = {
+        serviceID: 'EMAILJS_SERVICE_ID',
+        templateID_Owner: 'EMAILJS_TEMPLATE_OWNER',
+        templateID_Client: 'EMAILJS_TEMPLATE_CLIENT',
+        publicKey: 'EMAILJS_PUBLIC_KEY'
+    };
 
-    if (EMAILJS_CONFIG.serviceID === 'YOUR_SERVICE_ID' || !EMAILJS_CONFIG.serviceID) {
-        errors.push('Service ID não configurado');
-    }
+    const missing = Object.entries(required)
+        .filter(([field]) => !EMAILJS_CONFIG[field])
+        .map(([, envVar]) => envVar);
 
-    if (EMAILJS_CONFIG.templateID_Owner === 'YOUR_TEMPLATE_ID' || !EMAILJS_CONFIG.templateID_Owner) {
-        errors.push('Template ID Owner não configurado');
-    }
-
-    if (EMAILJS_CONFIG.templateID_Client === 'YOUR_CLIENT_TEMPLATE_ID' || !EMAILJS_CONFIG.templateID_Client) {
-        errors.push('Template ID Client não configurado');
-    }
-
-    if (EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY' || !EMAILJS_CONFIG.publicKey) {
-        errors.push('Public Key não configurada');
-    }
-
-    if (errors.length > 0) {
-        console.error('❌ ERROS DE CONFIGURAÇÃO:', errors);
-        showNotification('⚠️ Configure o EmailJS: ' + errors.join(', '), 'error');
+    if (missing.length > 0) {
+        // Erro de configuração do site, não do visitante: registra no console e
+        // deixa o formulário em fallback (mailto) em vez de exibir jargão técnico.
+        console.error(
+            '❌ EmailJS não configurado. Faltando no .env: ' + missing.join(', ') +
+            '\n   Preencha o .env e rode: node scripts/build-config.mjs'
+        );
         return false;
     }
 
     console.log('✓ Configuração válida');
     return true;
+}
+
+/**
+ * Sem EmailJS configurado o formulário não pode enviar. Em vez de falhar em
+ * silêncio, converte o envio em um mailto pré-preenchido — a mensagem do
+ * visitante não se perde.
+ */
+function enableMailtoFallback(form) {
+    const contactEmail = window.APP_CONFIG?.site?.contactEmail || 'oliversinyxcontato@gmail.com';
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const data = collectFormData(form);
+        if (!data) return;
+
+        const subject = `Contato pelo portfólio — ${data.from_name}`;
+        const body =
+            `Nome: ${data.from_name}\n` +
+            `Empresa: ${data.company}\n` +
+            `Email: ${data.from_email}\n` +
+            `Telefone: ${data.phone}\n` +
+            `Interesse: ${data.product}\n\n` +
+            `${data.message}\n`;
+
+        window.location.href =
+            `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        showNotification('Abrindo seu aplicativo de email…', 'info', 4000);
+    });
 }
 
 // ============================================
@@ -115,15 +148,15 @@ async function initContactForm() {
     console.log('✓ Formulário encontrado');
 
     if (!validateConfig()) {
+        enableMailtoFallback(form);
         return;
     }
 
     try {
         await loadEmailJS();
-        showNotification('✓ Sistema de email pronto!', 'success', 3000);
     } catch (error) {
         console.error('❌ Erro ao carregar EmailJS:', error.message);
-        showNotification('Erro ao carregar EmailJS: ' + error.message, 'error');
+        enableMailtoFallback(form);
         return;
     }
 

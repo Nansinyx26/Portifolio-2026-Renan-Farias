@@ -37,7 +37,7 @@ Portfólio moderno e interativo desenvolvido com tecnologias de ponta para apres
 - **GSAP 3.12.2** - Animações profissionais
   - ScrollTrigger para animações baseadas em scroll
   - TextPlugin para efeito de digitação
-- **Three.js r128** - Gráficos 3D interativos
+- **Three.js 0.169** - Renderização 3D fisicamente baseada (PBR)
 - **Font Awesome 6.4.0** - Ícones vetoriais
 
 ### Funcionalidades Avançadas
@@ -50,18 +50,73 @@ Portfólio moderno e interativo desenvolvido com tecnologias de ponta para apres
 
 ```
 portfolio/
-├── index.html          # Estrutura principal
-├── style.css           # Estilos e temas
-├── script.js           # JavaScript principal
-├── images/             # Imagens dos projetos
-│   ├── MakerCoins3.0.png
-│   ├── SistemaSolar.png
-│   ├── SistemaFuteboldeBotão.png
-│   ├── SistemaCadastroEscolar.png
-│   ├── SistemaAvaliador.png
-│   └── SenhaCriptografada.png
-└── README.md           # Documentação
+├── index.html                  # Estrutura principal
+├── css/
+│   ├── style.css               # Estilos base e componentes
+│   ├── marcadagua.css          # Marca d'água NanDev
+│   └── design-system.css       # Design tokens (OKLCH) — carregado por último
+├── js/
+│   ├── config.js               # Normaliza a configuração em window.APP_CONFIG
+│   ├── config.generated.js     # GERADO a partir do .env — não editar à mão
+│   ├── hero-scene.js           # Cena 3D do hero (módulo ESM, Three.js moderno)
+│   ├── script.js               # Navegação, tema, chatbot, marca d'água
+│   └── contact-form-email.js   # Formulário de contato (EmailJS)
+├── api/
+│   └── tts.example.js          # Proxy serverless para o ElevenLabs (modelo)
+├── scripts/
+│   └── build-config.mjs        # Gera config.generated.js a partir do .env
+├── imagens/
+│   ├── logo.svg                # Logo horizontal (marca + assinatura)
+│   ├── logo-mark.svg           # Símbolo isolado (favicon)
+│   └── profile-img.png
+├── Gif/                        # Demonstrações dos projetos
+├── .env                        # Configuração local (não versionado)
+├── .env.example                # Modelo com instruções
+└── README.md
 ```
+
+## ⚙️ Configuração
+
+As credenciais ficam no `.env`, não no código. Depois de editá-lo, regenere o
+arquivo que o navegador carrega:
+
+```bash
+cp .env.example .env     # primeira vez
+node scripts/build-config.mjs
+```
+
+> **Este site é estático.** Qualquer valor exportado para `js/config.generated.js`
+> é baixado pelo navegador e fica visível em DevTools. O `build-config.mjs` só
+> exporta chaves de uma allowlist e **aborta** se detectar um segredo conhecido
+> (OpenAI, Google, AWS, Stripe, MongoDB). Credenciais que dão acesso pago devem
+> ficar num proxy no servidor — veja `api/tts.example.js`.
+
+### Voz do chatbot (TTS)
+
+| Configuração no `.env`  | Comportamento                                        |
+| ----------------------- | ---------------------------------------------------- |
+| tudo vazio *(padrão)*   | Web Speech API do navegador — gratuita, sem chave     |
+| `ELEVENLABS_PROXY_URL`  | Vozes do ElevenLabs com a chave protegida no servidor |
+| `ELEVENLABS_API_KEY`    | Vozes do ElevenLabs, mas **a chave fica pública**     |
+
+## 🎬 Cena 3D do Hero
+
+`js/hero-scene.js` renderiza a cena com Three.js moderno (via import map):
+
+- **IBL** com `RoomEnvironment` + PMREM — reflexos reais sem baixar HDRI
+- **Materiais físicos**: vidro com transmissão e dispersão, metal escovado,
+  iridescência de filme fino, verniz (clearcoat) e cerâmica com sheen
+- **Tone mapping ACES Filmic** em espaço linear
+- **Pós-processamento**: bloom seletivo, aberração cromática, vinheta e grão
+- **Poeira volumétrica** animada no vertex shader (custo zero de CPU)
+
+Os objetos são posicionados como frações do frustum da câmera, então permanecem
+fora da área do texto em qualquer proporção de tela.
+
+**Desempenho e acessibilidade:** a cena reduz qualidade em telas pequenas,
+congela quando sai de vista ou a aba fica oculta, e respeita
+`prefers-reduced-motion` renderizando um único quadro estático. Sem WebGL, o
+canvas é removido e o CSS aplica um gradiente no lugar.
 
 ## 🎯 Seções do Portfólio
 
@@ -236,3 +291,5 @@ Este projeto é de uso pessoal para o portfólio de Renan de Oliveira Farias. O 
 ---
 
 *Desenvolvido com tecnologias avançadas e muito ❤️ por Renan de Oliveira Farias*
+
+*Os desenvolvimentos atuais são realizados com auxílio do **Claude Code Pro**, usado para revisão de código, refatoração assistida e aceleração da implementação.*
