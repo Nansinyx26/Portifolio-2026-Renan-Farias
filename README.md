@@ -93,11 +93,45 @@ node scripts/build-config.mjs
 
 ### Voz do chatbot (TTS)
 
-| Configuração no `.env`  | Comportamento                                        |
-| ----------------------- | ---------------------------------------------------- |
-| tudo vazio *(padrão)*   | Web Speech API do navegador — gratuita, sem chave     |
-| `ELEVENLABS_PROXY_URL`  | Vozes do ElevenLabs com a chave protegida no servidor |
-| `ELEVENLABS_API_KEY`    | Vozes do ElevenLabs, mas **a chave fica pública**     |
+| `ELEVENLABS_PROXY_URL` no `.env` | Comportamento                                     |
+| -------------------------------- | ------------------------------------------------- |
+| vazio                            | Web Speech API do navegador — gratuita, sem chave  |
+| `/api/tts`                       | Vozes do ElevenLabs via proxy (deploy na Vercel)   |
+
+**Importante:** `ELEVENLABS_API_KEY` **não** é exportada para o navegador — o
+`build-config.mjs` a mantém fora da allowlist de propósito. Ela existe apenas
+como variável de ambiente do servidor, lida por `api/tts.js`.
+
+#### Ativando as vozes do ElevenLabs na Vercel
+
+1. **Vercel > Settings > Environment Variables**, adicione:
+
+   ```
+   ELEVENLABS_API_KEY = <sua chave>
+   ```
+
+   Marque Production, Preview e Development.
+
+2. **Refaça o deploy.** Variáveis de ambiente só passam a valer em deploys
+   novos — criá-las não atualiza o deploy que já está no ar.
+
+3. Confirme que `ELEVENLABS_PROXY_URL=/api/tts` está no `.env` e rode
+   `node scripts/build-config.mjs`, commitando o `js/config.generated.js`
+   resultante. Sem isso o navegador não sabe que existe um proxy e continua
+   usando a voz do sistema.
+
+O caminho é relativo (`/api/tts`), então a chamada é na mesma origem do site e
+não há CORS envolvido.
+
+#### Diagnóstico
+
+| Sintoma                                    | Causa provável                                    |
+| ------------------------------------------ | ------------------------------------------------- |
+| Fala com a voz do sistema, sem erro         | `ELEVENLABS_PROXY_URL` vazio no config publicado   |
+| `404` em `/api/tts`                         | Deploy sem a função — confira se `api/tts.js` foi enviado |
+| `500 Serviço de voz não configurado`        | `ELEVENLABS_API_KEY` ausente, ou deploy anterior à variável |
+| `502` com `upstreamStatus: 401`             | Chave inválida ou revogada                        |
+| `502` com `upstreamStatus: 429`             | Cota do ElevenLabs esgotada                       |
 
 ## 🎬 Cena 3D do Hero
 

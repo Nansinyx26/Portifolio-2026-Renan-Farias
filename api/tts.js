@@ -1,27 +1,33 @@
 /**
- * TTS.EXAMPLE.JS — Proxy serverless para o ElevenLabs
+ * /api/tts — Proxy serverless para o ElevenLabs (Vercel)
  *
- * Mantém a chave da API no servidor, onde o navegador não a alcança.
- * O site estático chama esta função; ela chama o ElevenLabs e devolve o áudio.
+ * A chave da API fica NO SERVIDOR, como variável de ambiente da Vercel. O
+ * navegador nunca a recebe: ele só chama este endpoint, que repassa o pedido
+ * ao ElevenLabs e devolve o áudio.
  *
  * -----------------------------------------------------------------------------
- * COMO USAR (Vercel)
+ * CONFIGURAÇÃO NA VERCEL
  * -----------------------------------------------------------------------------
- * 1. Renomeie este arquivo para `api/tts.js`.
- * 2. No painel da Vercel: Settings > Environment Variables
- *       ELEVENLABS_API_KEY = <sua chave NOVA, depois de revogar a antiga>
- *       ALLOWED_ORIGIN     = https://seu-dominio.com
- * 3. Faça o deploy.
- * 4. No `.env` do site, aponte para a função:
- *       ELEVENLABS_PROXY_URL=https://seu-projeto.vercel.app/api/tts
- * 5. Regenere a config: `node scripts/build-config.mjs`
+ * Settings > Environment Variables:
  *
- * Netlify e Cloudflare Workers seguem o mesmo desenho, mudando só a assinatura
- * do handler.
+ *   ELEVENLABS_API_KEY = <sua chave NOVA, depois de revogar a antiga>
+ *
+ * Marque os ambientes Production, Preview e Development. Variáveis novas só
+ * valem para deploys NOVOS — é preciso refazer o deploy depois de criá-las.
+ *
+ * ALLOWED_ORIGIN é opcional: o site chama este endpoint pelo caminho relativo
+ * /api/tts, ou seja, na mesma origem, e nesse caso o CORS nem entra em cena.
+ *
+ * -----------------------------------------------------------------------------
+ * FORMATO DO MÓDULO
+ * -----------------------------------------------------------------------------
+ * CommonJS (module.exports) de propósito. Sem um package.json com
+ * "type": "module", a Vercel interpreta arquivos .js como CommonJS — um
+ * `export default` aqui quebraria a função com "Unexpected token 'export'".
  */
 
-// Vozes que este proxy aceita. Sem essa lista, alguém poderia usar sua conta
-// para sintetizar com qualquer voz do catálogo.
+// Vozes que este proxy aceita. Sem a lista, alguém poderia usar sua conta para
+// sintetizar com qualquer voz do catálogo.
 const ALLOWED_VOICE_IDS = new Set([
     'cgSgspJ2msm6clMCkdW9', // Português (BR)
     '21m00Tcm4TlvDq8ikWAM', // English (US)
@@ -33,7 +39,7 @@ const ALLOWED_VOICE_IDS = new Set([
 
 const MAX_TEXT_LENGTH = 800;
 
-export default async function handler(request, response) {
+module.exports = async function handler(request, response) {
     const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
 
     response.setHeader('Access-Control-Allow-Origin', allowedOrigin);
@@ -50,11 +56,22 @@ export default async function handler(request, response) {
 
     const apiKey = process.env.ELEVENLABS_API_KEY;
     if (!apiKey) {
-        console.error('ELEVENLABS_API_KEY não configurada no ambiente do servidor.');
-        return response.status(500).json({ error: 'Serviço de voz indisponível' });
+        console.error('ELEVENLABS_API_KEY ausente no ambiente da Vercel.');
+        return response.status(500).json({ error: 'Serviço de voz não configurado' });
     }
 
-    const { text, voiceId } = request.body || {};
+    // A Vercel já entrega o corpo JSON parseado, mas em alguns cenários ele
+    // chega como string — normalizar evita uma falha silenciosa.
+    let body = request.body;
+    if (typeof body === 'string') {
+        try {
+            body = JSON.parse(body);
+        } catch {
+            return response.status(400).json({ error: 'JSON inválido' });
+        }
+    }
+
+    const { text, voiceId } = body || {};
 
     // Validação de entrada: limita custo e impede uso da conta como serviço aberto.
     if (typeof text !== 'string' || text.trim().length === 0) {
@@ -83,9 +100,15 @@ export default async function handler(request, response) {
         });
 
         if (!upstream.ok) {
-            // Não repassa o corpo do erro: pode conter detalhes da conta.
-            console.error('Erro do ElevenLabs:', upstream.status, await upstream.text());
-            return response.status(502).json({ error: 'Falha na síntese de voz' });
+            // O corpo do erro pode conter detalhes da conta: fica só no log.
+            const detail = await upstream.text();
+            console.error('Erro do ElevenLabs:', upstream.status, detail);
+
+            // 401 costuma ser chave inválida/revogada; 429, cota esgotada.
+            return response.status(502).json({
+                error: 'Falha na síntese de voz',
+                upstreamStatus: upstream.status
+            });
         }
 
         const audio = Buffer.from(await upstream.arrayBuffer());
@@ -98,4 +121,4 @@ export default async function handler(request, response) {
         console.error('Erro no proxy de TTS:', error);
         return response.status(500).json({ error: 'Erro interno' });
     }
-}
+};
