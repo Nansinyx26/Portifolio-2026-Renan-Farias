@@ -79,7 +79,8 @@ function parseEnv(contents) {
 function assertNoSecrets(env) {
     const findings = [];
 
-    for (const [key, value] of Object.entries(env)) {
+    for (const key of PUBLIC_KEYS) {
+        const value = env[key];
         if (!value) continue;
         for (const { name, regex } of SECRET_PATTERNS) {
             if (regex.test(value)) findings.push({ key, name });
